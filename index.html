@@ -98,10 +98,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 1 of 11</div>
       <div class="question-text">Who is making this move with you?</div>
       <div class="options" data-q="0">
-        <button class="option-btn" data-value="couple">&#128107; Just me and my partner / spouse</button>
-        <button class="option-btn" data-value="solo">&#129333; Just me</button>
-        <button class="option-btn" data-value="family_kids">&#128106; Family with kids at home</button>
-        <button class="option-btn" data-value="family_grown">&#128116; Empty nesters / grown kids</button>
+        <button class="option-btn" onclick="selectOption(this,0,'couple')" data-value="couple">&#128107; Just me and my partner / spouse</button>
+        <button class="option-btn" onclick="selectOption(this,0,'solo')" data-value="solo">&#129333; Just me</button>
+        <button class="option-btn" onclick="selectOption(this,0,'family_kids')" data-value="family_kids">&#128106; Family with kids at home</button>
+        <button class="option-btn" onclick="selectOption(this,0,'family_grown')" data-value="family_grown">&#128116; Empty nesters / grown kids</button>
       </div>
       <div class="nav-row"><button class="btn-next" id="next-0" disabled onclick="nextStep(0)">Next &rarr;</button></div>
     </div>
@@ -111,10 +111,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 2 of 11</div>
       <div class="question-text">What stage of life best describes you right now?</div>
       <div class="options" data-q="1">
-        <button class="option-btn" data-value="active55">&#127939; Active 55+ &mdash; ready to live my best life</button>
-        <button class="option-btn" data-value="retire_soon">&#127796; Retiring soon &mdash; this is my forever home</button>
-        <button class="option-btn" data-value="working">&#128188; Still working &mdash; need room to grow</button>
-        <button class="option-btn" data-value="seasonal">&#9992; Seasonal / snowbird &mdash; part-time Florida</button>
+        <button class="option-btn" onclick="selectOption(this,1,'active55')" data-value="active55">&#127939; Active 55+ &mdash; ready to live my best life</button>
+        <button class="option-btn" onclick="selectOption(this,1,'retire_soon')" data-value="retire_soon">&#127796; Retiring soon &mdash; this is my forever home</button>
+        <button class="option-btn" onclick="selectOption(this,1,'working')" data-value="working">&#128188; Still working &mdash; need room to grow</button>
+        <button class="option-btn" onclick="selectOption(this,1,'seasonal')" data-value="seasonal">&#9992; Seasonal / snowbird &mdash; part-time Florida</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(1)">&larr; Back</button>
@@ -127,11 +127,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 3 of 11</div>
       <div class="question-text">What's your budget range for a home?</div>
       <div class="options" data-q="2">
-        <button class="option-btn" data-value="under350k">&#128176; Under $350k</button>
-        <button class="option-btn" data-value="350_500">&#128176; $350k &ndash; $500k</button>
-        <button class="option-btn" data-value="500_700">&#128176; $500k &ndash; $700k</button>
-        <button class="option-btn" data-value="700_900">&#128176; $700k &ndash; $900k</button>
-        <button class="option-btn" data-value="over900k">&#128176; $900k+</button>
+        <button class="option-btn" onclick="selectOption(this,2,'under350k')" data-value="under350k">&#128176; Under $350k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'350_500')" data-value="350_500">&#128176; $350k &ndash; $500k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'500_700')" data-value="500_700">&#128176; $500k &ndash; $700k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'700_900')" data-value="700_900">&#128176; $700k &ndash; $900k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'over900k')" data-value="over900k">&#128176; $900k+</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(2)">&larr; Back</button>
@@ -144,11 +144,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 4 of 11</div>
       <div class="question-text">What type of home appeals to you most?</div>
       <div class="options" data-q="3">
-        <button class="option-btn" data-value="villa">&#127969; Villa or attached home &mdash; low maintenance</button>
-        <button class="option-btn" data-value="sfh_small">&#127968; Single-family home (cozy or mid-size)</button>
-        <button class="option-btn" data-value="sfh_large">&#127963; Single-family home (larger or luxury)</button>
-        <button class="option-btn" data-value="condo">&#127962; Condo, coach home, or townhome</button>
-        <button class="option-btn" data-value="flexible">&#129335; Open to anything</button>
+        <button class="option-btn" onclick="selectOption(this,3,'villa')" data-value="villa">&#127969; Villa or attached home &mdash; low maintenance</button>
+        <button class="option-btn" onclick="selectOption(this,3,'sfh_small')" data-value="sfh_small">&#127968; Single-family home (cozy or mid-size)</button>
+        <button class="option-btn" onclick="selectOption(this,3,'sfh_large')" data-value="sfh_large">&#127963; Single-family home (larger or luxury)</button>
+        <button class="option-btn" onclick="selectOption(this,3,'condo')" data-value="condo">&#127962; Condo, coach home, or townhome</button>
+        <button class="option-btn" onclick="selectOption(this,3,'flexible')" data-value="flexible">&#129335; Open to anything</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(3)">&larr; Back</button>
@@ -161,9 +161,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 5 of 11</div>
       <div class="question-text">How important is golf to your lifestyle?</div>
       <div class="options" data-q="4">
-        <button class="option-btn" data-value="golf_bundled">&#9971; Essential &mdash; I want bundled/deeded golf included</button>
-        <button class="option-btn" data-value="golf_optional">&#127948; Nice to have &mdash; optional or nearby course is fine</button>
-        <button class="option-btn" data-value="golf_no">&#128694; Not for me &mdash; I prefer other activities</button>
+        <button class="option-btn" onclick="selectOption(this,4,'golf_bundled')" data-value="golf_bundled">&#9971; Essential &mdash; I want bundled/deeded golf included</button>
+        <button class="option-btn" onclick="selectOption(this,4,'golf_optional')" data-value="golf_optional">&#127948; Nice to have &mdash; optional or nearby course is fine</button>
+        <button class="option-btn" onclick="selectOption(this,4,'golf_no')" data-value="golf_no">&#128694; Not for me &mdash; I prefer other activities</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(4)">&larr; Back</button>
@@ -176,10 +176,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 6 of 11</div>
       <div class="question-text">What kind of community vibe are you looking for?</div>
       <div class="options" data-q="5">
-        <button class="option-btn" data-value="social_active">&#127881; Very social &mdash; lots of clubs, events, activities</button>
-        <button class="option-btn" data-value="quiet_private">&#127807; Quiet and private &mdash; a peaceful retreat</button>
-        <button class="option-btn" data-value="balanced">&#9878; Balanced &mdash; friendly but not overwhelming</button>
-        <button class="option-btn" data-value="nature_focus">&#127795; Nature-focused &mdash; trails, preserves, outdoors</button>
+        <button class="option-btn" onclick="selectOption(this,5,'social_active')" data-value="social_active">&#127881; Very social &mdash; lots of clubs, events, activities</button>
+        <button class="option-btn" onclick="selectOption(this,5,'quiet_private')" data-value="quiet_private">&#127807; Quiet and private &mdash; a peaceful retreat</button>
+        <button class="option-btn" onclick="selectOption(this,5,'balanced')" data-value="balanced">&#9878; Balanced &mdash; friendly but not overwhelming</button>
+        <button class="option-btn" onclick="selectOption(this,5,'nature_focus')" data-value="nature_focus">&#127795; Nature-focused &mdash; trails, preserves, outdoors</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(5)">&larr; Back</button>
@@ -192,10 +192,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 7 of 11</div>
       <div class="question-text">How do you feel about HOA and CDD fees?</div>
       <div class="options" data-q="6">
-        <button class="option-btn" data-value="fees_low">&#129296; Keep them as low as possible</button>
-        <button class="option-btn" data-value="fees_medium">&#9989; Happy to pay moderate fees for great amenities</button>
-        <button class="option-btn" data-value="fees_high">&#11088; Fine with higher fees for a premium lifestyle</button>
-        <button class="option-btn" data-value="fees_unsure">&#129300; Not sure &mdash; I'd love some guidance</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_low')" data-value="fees_low">&#129296; Keep them as low as possible</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_medium')" data-value="fees_medium">&#9989; Happy to pay moderate fees for great amenities</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_high')" data-value="fees_high">&#11088; Fine with higher fees for a premium lifestyle</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_unsure')" data-value="fees_unsure">&#129300; Not sure &mdash; I'd love some guidance</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(6)">&larr; Back</button>
@@ -208,12 +208,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 8 of 11</div>
       <div class="question-text">Which amenities matter most to you?</div>
       <div class="options" data-q="7">
-        <button class="option-btn" data-value="amenity_resort">&#127944; Resort-style pools, pickleball, fitness center</button>
-        <button class="option-btn" data-value="amenity_nature">&#128692; Trails, kayaking, nature preserves, fishing</button>
-        <button class="option-btn" data-value="amenity_waterfront">&#127754; Canal or water views right outside my door</button>
-        <button class="option-btn" data-value="amenity_social">&#127917; Clubhouse, social events, on-site dining</button>
-        <button class="option-btn" data-value="amenity_minimal">&#128524; Simple &mdash; just a pool and peace and quiet</button>
-        <button class="option-btn" data-value="amenity_none">&#127968; I don't need amenities &mdash; just a great home and location</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_resort')" data-value="amenity_resort">&#127944; Resort-style pools, pickleball, fitness center</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_nature')" data-value="amenity_nature">&#128692; Trails, kayaking, nature preserves, fishing</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_waterfront')" data-value="amenity_waterfront">&#127754; Canal or water views right outside my door</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_social')" data-value="amenity_social">&#127917; Clubhouse, social events, on-site dining</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_minimal')" data-value="amenity_minimal">&#128524; Simple &mdash; just a pool and peace and quiet</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_none')" data-value="amenity_none">&#127968; I don't need amenities &mdash; just a great home and location</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(7)">&larr; Back</button>
@@ -226,9 +226,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 9 of 11</div>
       <div class="question-text">How close to Downtown Wellen and shopping do you want to be?</div>
       <div class="options" data-q="8">
-        <button class="option-btn" data-value="walkable">&#128694; Walking distance is ideal</button>
-        <button class="option-btn" data-value="short_drive">&#128663; A short drive is totally fine</button>
-        <button class="option-btn" data-value="dont_care_loc">&#128524; Doesn't matter &mdash; I value privacy over proximity</button>
+        <button class="option-btn" onclick="selectOption(this,8,'walkable')" data-value="walkable">&#128694; Walking distance is ideal</button>
+        <button class="option-btn" onclick="selectOption(this,8,'short_drive')" data-value="short_drive">&#128663; A short drive is totally fine</button>
+        <button class="option-btn" onclick="selectOption(this,8,'dont_care_loc')" data-value="dont_care_loc">&#128524; Doesn't matter &mdash; I value privacy over proximity</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(8)">&larr; Back</button>
@@ -241,9 +241,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 10 of 11</div>
       <div class="question-text">Do you prefer new construction or an established resale community?</div>
       <div class="options" data-q="9">
-        <button class="option-btn" data-value="new_construction">&#127959; New construction &mdash; I want to pick my finishes and have a builder warranty</button>
-        <button class="option-btn" data-value="resale">&#127795; Established resale &mdash; mature landscaping, move-in ready, more negotiating room</button>
-        <button class="option-btn" data-value="either_type">&#129335; Either works &mdash; show me the best options</button>
+        <button class="option-btn" onclick="selectOption(this,9,'new_construction')" data-value="new_construction">&#127959; New construction &mdash; I want to pick my finishes and have a builder warranty</button>
+        <button class="option-btn" onclick="selectOption(this,9,'resale')" data-value="resale">&#127795; Established resale &mdash; mature landscaping, move-in ready, more negotiating room</button>
+        <button class="option-btn" onclick="selectOption(this,9,'either_type')" data-value="either_type">&#129335; Either works &mdash; show me the best options</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(9)">&larr; Back</button>
@@ -256,10 +256,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="question-label">Question 11 of 11</div>
       <div class="question-text">When are you looking to make your move?</div>
       <div class="options" data-q="10">
-        <button class="option-btn" data-value="asap">&#128293; As soon as possible</button>
-        <button class="option-btn" data-value="sixmonths">&#128197; Within 6 months</button>
-        <button class="option-btn" data-value="year">&#128197; Within a year</button>
-        <button class="option-btn" data-value="exploring">&#128301; Just exploring for now</button>
+        <button class="option-btn" onclick="selectOption(this,10,'asap')" data-value="asap">&#128293; As soon as possible</button>
+        <button class="option-btn" onclick="selectOption(this,10,'sixmonths')" data-value="sixmonths">&#128197; Within 6 months</button>
+        <button class="option-btn" onclick="selectOption(this,10,'year')" data-value="year">&#128197; Within a year</button>
+        <button class="option-btn" onclick="selectOption(this,10,'exploring')" data-value="exploring">&#128301; Just exploring for now</button>
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep(10)">&larr; Back</button>
@@ -324,7 +324,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var TOTAL_Q = 11;
 var answers = {};
 var contactType = 'email';
@@ -369,18 +369,17 @@ function scoreNeighborhoods() {
   return scored;
 }
 
-document.querySelectorAll('.options').forEach(function(group) {
-  group.addEventListener('click', function(e) {
-    var btn = e.target.closest('.option-btn');
-    if (!btn) return;
-    group.querySelectorAll('.option-btn').forEach(function(b){b.classList.remove('selected');});
-    btn.classList.add('selected');
-    var qIndex = parseInt(group.dataset.q);
-    answers[qIndex] = btn.dataset.value;
-    var nextBtn = document.getElementById('next-' + qIndex);
-    if (nextBtn) nextBtn.disabled = false;
-  });
-});
+function selectOption(btn, qIndex, value) {
+  var group = document.querySelector('.options[data-q="' + qIndex + '"]');
+  var allBtns = group.getElementsByClassName('option-btn');
+  for (var i = 0; i < allBtns.length; i++) {
+    allBtns[i].classList.remove('selected');
+  }
+  btn.classList.add('selected');
+  answers[qIndex] = value;
+  var nextBtn = document.getElementById('next-' + qIndex);
+  if (nextBtn) nextBtn.disabled = false;
+}
 
 function updateProgress(stepIndex) {
   var pct = Math.min(Math.round((stepIndex / TOTAL_Q) * 100), 100);
