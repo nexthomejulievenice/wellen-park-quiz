@@ -21,7 +21,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .question-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#ff6c2c;margin-bottom:.6rem}
 .question-text{font-size:18px;font-weight:600;color:#1a1a1a;line-height:1.4;margin-bottom:1.25rem}
 .options{display:flex;flex-direction:column;gap:9px}
-.option-btn{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1.5px solid #d0e2ef;border-radius:10px;background:#fff;cursor:pointer;font-size:14px;color:#1a1a1a;text-align:left;width:100%;line-height:1.4;pointer-events:auto;position:relative;z-index:5}
+.option-btn{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1.5px solid #d0e2ef;border-radius:10px;background:#fff;cursor:pointer;font-size:14px;color:#1a1a1a;text-align:left;width:100%;line-height:1.4}
 .option-btn:hover{border-color:#ff6c2c;background:#fff4ef}
 .option-btn.selected{border-color:#ff6c2c;background:#fff4ef;color:#c44d10;font-weight:500}
 .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:12px}
@@ -72,347 +72,335 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="header">
     <div class="brand">NextHome Excellence</div>
     <h1>Find Your Perfect Wellen Park Neighborhood</h1>
-    <p>Answer 11 quick questions &mdash; we'll match you to the right community.</p>
+    <p>Answer 11 quick questions - we will match you to the right community.</p>
     <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
     <div class="progress-label" id="progressLabel">Question 1 of 11</div>
   </div>
   <div class="body">
-
     <div class="step active" id="step-0">
       <div class="question-label">Question 1 of 11</div>
       <div class="question-text">Who is making this move with you?</div>
       <div class="options" data-q="0">
-        <button class="option-btn" onclick="selectOption(this,0,'couple')">&#128107; Just me and my partner / spouse</button>
-        <button class="option-btn" onclick="selectOption(this,0,'solo')">&#129333; Just me</button>
-        <button class="option-btn" onclick="selectOption(this,0,'family_kids')">&#128106; All-ages community with kids at home</button>
-        <button class="option-btn" onclick="selectOption(this,0,'family_grown')">&#128116; Empty nesters / grown kids</button>
+        <button class="option-btn" onclick="selectOption(this,0,'couple')">Just me and my partner / spouse</button>
+        <button class="option-btn" onclick="selectOption(this,0,'solo')">Just me</button>
+        <button class="option-btn" onclick="selectOption(this,0,'family_kids')">All-ages community with kids at home</button>
+        <button class="option-btn" onclick="selectOption(this,0,'family_grown')">Empty nesters / grown kids</button>
       </div>
-      <div class="nav-row"><button class="btn-next" id="next-0" disabled onclick="nextStep(0)">Next &rarr;</button></div>
+      <div class="nav-row"><button class="btn-next" id="next-0" disabled onclick="nextStep(0)">Next</button></div>
     </div>
-
     <div class="step" id="step-1">
       <div class="question-label">Question 2 of 11</div>
       <div class="question-text">What stage of life best describes you right now?</div>
       <div class="options" data-q="1">
-        <button class="option-btn" onclick="selectOption(this,1,'active55')">&#127939; Active 55+ &mdash; ready to live my best life</button>
-        <button class="option-btn" onclick="selectOption(this,1,'retire_soon')">&#127796; Retiring soon &mdash; this is my forever home</button>
-        <button class="option-btn" onclick="selectOption(this,1,'working')">&#128188; Still working &mdash; need room to grow</button>
-        <button class="option-btn" onclick="selectOption(this,1,'seasonal')">&#9992; Seasonal / snowbird &mdash; part-time Florida</button>
+        <button class="option-btn" onclick="selectOption(this,1,'active55')">Active 55+ - ready to live my best life</button>
+        <button class="option-btn" onclick="selectOption(this,1,'retire_soon')">Retiring soon - this is my forever home</button>
+        <button class="option-btn" onclick="selectOption(this,1,'working')">Still working - need room to grow</button>
+        <button class="option-btn" onclick="selectOption(this,1,'seasonal')">Seasonal / snowbird - part-time Florida</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(1)">&larr; Back</button>
-        <button class="btn-next" id="next-1" disabled onclick="nextStep(1)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(1)">Back</button>
+        <button class="btn-next" id="next-1" disabled onclick="nextStep(1)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-2">
       <div class="question-label">Question 3 of 11</div>
-      <div class="question-text">What's your budget range for a home?</div>
+      <div class="question-text">What is your budget range for a home?</div>
       <div class="options" data-q="2">
-        <button class="option-btn" onclick="selectOption(this,2,'under350k')">&#128176; Under $350k</button>
-        <button class="option-btn" onclick="selectOption(this,2,'350_500')">&#128176; $350k &ndash; $500k</button>
-        <button class="option-btn" onclick="selectOption(this,2,'500_700')">&#128176; $500k &ndash; $700k</button>
-        <button class="option-btn" onclick="selectOption(this,2,'700_900')">&#128176; $700k &ndash; $900k</button>
-        <button class="option-btn" onclick="selectOption(this,2,'over900k')">&#128176; $900k+</button>
+        <button class="option-btn" onclick="selectOption(this,2,'under350k')">Under $350k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'350_500')">$350k to $500k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'500_700')">$500k to $700k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'700_900')">$700k to $900k</button>
+        <button class="option-btn" onclick="selectOption(this,2,'over900k')">$900k+</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(2)">&larr; Back</button>
-        <button class="btn-next" id="next-2" disabled onclick="nextStep(2)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(2)">Back</button>
+        <button class="btn-next" id="next-2" disabled onclick="nextStep(2)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-3">
       <div class="question-label">Question 4 of 11</div>
       <div class="question-text">What type of home appeals to you most?</div>
       <div class="options" data-q="3">
-        <button class="option-btn" onclick="selectOption(this,3,'villa')">&#127969; Villa or attached home &mdash; low maintenance</button>
-        <button class="option-btn" onclick="selectOption(this,3,'sfh_small')">&#127968; Single-family home (cozy or mid-size)</button>
-        <button class="option-btn" onclick="selectOption(this,3,'sfh_large')">&#127963; Single-family home (larger or luxury)</button>
-        <button class="option-btn" onclick="selectOption(this,3,'condo')">&#127962; Condo, coach home, or townhome</button>
-        <button class="option-btn" onclick="selectOption(this,3,'flexible')">&#129335; Open to anything</button>
+        <button class="option-btn" onclick="selectOption(this,3,'villa')">Villa or attached home - low maintenance</button>
+        <button class="option-btn" onclick="selectOption(this,3,'sfh_small')">Single-family home (cozy or mid-size)</button>
+        <button class="option-btn" onclick="selectOption(this,3,'sfh_large')">Single-family home (larger or luxury)</button>
+        <button class="option-btn" onclick="selectOption(this,3,'condo')">Condo, coach home, or townhome</button>
+        <button class="option-btn" onclick="selectOption(this,3,'flexible')">Open to anything</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(3)">&larr; Back</button>
-        <button class="btn-next" id="next-3" disabled onclick="nextStep(3)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(3)">Back</button>
+        <button class="btn-next" id="next-3" disabled onclick="nextStep(3)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-4">
       <div class="question-label">Question 5 of 11</div>
       <div class="question-text">How important is golf to your lifestyle?</div>
       <div class="options" data-q="4">
-        <button class="option-btn" onclick="selectOption(this,4,'golf_bundled')">&#9971; Essential &mdash; I want bundled/deeded golf included</button>
-        <button class="option-btn" onclick="selectOption(this,4,'golf_optional')">&#127948; Nice to have &mdash; optional or nearby course is fine</button>
-        <button class="option-btn" onclick="selectOption(this,4,'golf_no')">&#128694; Not for me &mdash; I prefer other activities</button>
+        <button class="option-btn" onclick="selectOption(this,4,'golf_bundled')">Essential - I want bundled/deeded golf included</button>
+        <button class="option-btn" onclick="selectOption(this,4,'golf_optional')">Nice to have - optional or nearby course is fine</button>
+        <button class="option-btn" onclick="selectOption(this,4,'golf_no')">Not for me - I prefer other activities</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(4)">&larr; Back</button>
-        <button class="btn-next" id="next-4" disabled onclick="nextStep(4)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(4)">Back</button>
+        <button class="btn-next" id="next-4" disabled onclick="nextStep(4)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-5">
       <div class="question-label">Question 6 of 11</div>
       <div class="question-text">What kind of community vibe are you looking for?</div>
       <div class="options" data-q="5">
-        <button class="option-btn" onclick="selectOption(this,5,'social_active')">&#127881; Very social &mdash; lots of clubs, events, activities</button>
-        <button class="option-btn" onclick="selectOption(this,5,'quiet_private')">&#127807; Quiet and private &mdash; a peaceful retreat</button>
-        <button class="option-btn" onclick="selectOption(this,5,'balanced')">&#9878; Balanced &mdash; friendly but not overwhelming</button>
-        <button class="option-btn" onclick="selectOption(this,5,'nature_focus')">&#127795; Nature-focused &mdash; trails, preserves, outdoors</button>
+        <button class="option-btn" onclick="selectOption(this,5,'social_active')">Very social - lots of clubs, events, activities</button>
+        <button class="option-btn" onclick="selectOption(this,5,'quiet_private')">Quiet and private - a peaceful retreat</button>
+        <button class="option-btn" onclick="selectOption(this,5,'balanced')">Balanced - friendly but not overwhelming</button>
+        <button class="option-btn" onclick="selectOption(this,5,'nature_focus')">Nature-focused - trails, preserves, outdoors</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(5)">&larr; Back</button>
-        <button class="btn-next" id="next-5" disabled onclick="nextStep(5)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(5)">Back</button>
+        <button class="btn-next" id="next-5" disabled onclick="nextStep(5)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-6">
       <div class="question-label">Question 7 of 11</div>
       <div class="question-text">How do you feel about HOA and CDD fees?</div>
       <div class="options" data-q="6">
-        <button class="option-btn" onclick="selectOption(this,6,'fees_low')">&#129296; Keep them as low as possible</button>
-        <button class="option-btn" onclick="selectOption(this,6,'fees_medium')">&#9989; Happy to pay moderate fees for great amenities</button>
-        <button class="option-btn" onclick="selectOption(this,6,'fees_high')">&#11088; Fine with higher fees for a premium lifestyle</button>
-        <button class="option-btn" onclick="selectOption(this,6,'fees_unsure')">&#129300; Not sure &mdash; I'd love some guidance</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_low')">Keep them as low as possible</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_medium')">Happy to pay moderate fees for great amenities</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_high')">Fine with higher fees for a premium lifestyle</button>
+        <button class="option-btn" onclick="selectOption(this,6,'fees_unsure')">Not sure - I would love some guidance</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(6)">&larr; Back</button>
-        <button class="btn-next" id="next-6" disabled onclick="nextStep(6)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(6)">Back</button>
+        <button class="btn-next" id="next-6" disabled onclick="nextStep(6)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-7">
       <div class="question-label">Question 8 of 11</div>
       <div class="question-text">Which amenities matter most to you?</div>
       <div class="options" data-q="7">
-        <button class="option-btn" onclick="selectOption(this,7,'amenity_resort')">&#127944; Resort-style pools, pickleball, fitness center</button>
-        <button class="option-btn" onclick="selectOption(this,7,'amenity_nature')">&#128692; Trails, kayaking, nature preserves, fishing</button>
-        <button class="option-btn" onclick="selectOption(this,7,'amenity_waterfront')">&#127754; Canal or water views right outside my door</button>
-        <button class="option-btn" onclick="selectOption(this,7,'amenity_social')">&#127917; Clubhouse, social events, on-site dining</button>
-        <button class="option-btn" onclick="selectOption(this,7,'amenity_minimal')">&#128524; Simple &mdash; just a pool and peace and quiet</button>
-        <button class="option-btn" onclick="selectOption(this,7,'amenity_none')">&#127968; I don't need amenities &mdash; just a great home and location</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_resort')">Resort-style pools, pickleball, fitness center</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_nature')">Trails, kayaking, nature preserves, fishing</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_waterfront')">Canal or water views right outside my door</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_social')">Clubhouse, social events, on-site dining</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_minimal')">Simple - just a pool and peace and quiet</button>
+        <button class="option-btn" onclick="selectOption(this,7,'amenity_none')">I do not need amenities - just a great home and location</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(7)">&larr; Back</button>
-        <button class="btn-next" id="next-7" disabled onclick="nextStep(7)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(7)">Back</button>
+        <button class="btn-next" id="next-7" disabled onclick="nextStep(7)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-8">
       <div class="question-label">Question 9 of 11</div>
       <div class="question-text">How close to Downtown Wellen and shopping do you want to be?</div>
       <div class="options" data-q="8">
-        <button class="option-btn" onclick="selectOption(this,8,'walkable')">&#128694; Walking distance is ideal</button>
-        <button class="option-btn" onclick="selectOption(this,8,'short_drive')">&#128663; A short drive is totally fine</button>
-        <button class="option-btn" onclick="selectOption(this,8,'dont_care_loc')">&#128524; Doesn't matter &mdash; I value privacy over proximity</button>
+        <button class="option-btn" onclick="selectOption(this,8,'walkable')">Walking distance is ideal</button>
+        <button class="option-btn" onclick="selectOption(this,8,'short_drive')">A short drive is totally fine</button>
+        <button class="option-btn" onclick="selectOption(this,8,'dont_care_loc')">Does not matter - I value privacy over proximity</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(8)">&larr; Back</button>
-        <button class="btn-next" id="next-8" disabled onclick="nextStep(8)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(8)">Back</button>
+        <button class="btn-next" id="next-8" disabled onclick="nextStep(8)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-9">
       <div class="question-label">Question 10 of 11</div>
       <div class="question-text">Do you prefer new construction or an established resale community?</div>
       <div class="options" data-q="9">
-        <button class="option-btn" onclick="selectOption(this,9,'new_construction')">&#127959; New construction &mdash; I want to pick my finishes and have a builder warranty</button>
-        <button class="option-btn" onclick="selectOption(this,9,'resale')">&#127795; Established resale &mdash; mature landscaping, move-in ready, more negotiating room</button>
-        <button class="option-btn" onclick="selectOption(this,9,'either_type')">&#129335; Either works &mdash; show me the best options</button>
+        <button class="option-btn" onclick="selectOption(this,9,'new_construction')">New construction - I want to pick my finishes and have a builder warranty</button>
+        <button class="option-btn" onclick="selectOption(this,9,'resale')">Established resale - mature landscaping, move-in ready, more negotiating room</button>
+        <button class="option-btn" onclick="selectOption(this,9,'either_type')">Either works - show me the best options</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(9)">&larr; Back</button>
-        <button class="btn-next" id="next-9" disabled onclick="nextStep(9)">Next &rarr;</button>
+        <button class="btn-back" onclick="prevStep(9)">Back</button>
+        <button class="btn-next" id="next-9" disabled onclick="nextStep(9)">Next</button>
       </div>
     </div>
-
     <div class="step" id="step-10">
       <div class="question-label">Question 11 of 11</div>
       <div class="question-text">When are you looking to make your move?</div>
       <div class="options" data-q="10">
-        <button class="option-btn" onclick="selectOption(this,10,'asap')">&#128293; As soon as possible</button>
-        <button class="option-btn" onclick="selectOption(this,10,'sixmonths')">&#128197; Within 6 months</button>
-        <button class="option-btn" onclick="selectOption(this,10,'year')">&#128197; Within a year</button>
-        <button class="option-btn" onclick="selectOption(this,10,'exploring')">&#128301; Just exploring for now</button>
+        <button class="option-btn" onclick="selectOption(this,10,'asap')">As soon as possible</button>
+        <button class="option-btn" onclick="selectOption(this,10,'sixmonths')">Within 6 months</button>
+        <button class="option-btn" onclick="selectOption(this,10,'year')">Within a year</button>
+        <button class="option-btn" onclick="selectOption(this,10,'exploring')">Just exploring for now</button>
       </div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(10)">&larr; Back</button>
-        <button class="btn-next" id="next-10" disabled onclick="nextStep(10)">See my matches &rarr;</button>
+        <button class="btn-back" onclick="prevStep(10)">Back</button>
+        <button class="btn-next" id="next-10" disabled onclick="nextStep(10)">See my matches</button>
       </div>
     </div>
-
     <div class="step contact-step" id="step-contact">
       <h2>Almost there!</h2>
-      <p class="sub">We've found your top neighborhood matches! Choose how you'd like to receive your personalized results &mdash; Julie will reach out to answer any questions.</p>
+      <p class="sub">We have found your top neighborhood matches! Choose how you would like to receive your personalized results - Julie will reach out to answer any questions.</p>
       <div style="font-size:13px;font-weight:600;color:#333;margin-bottom:8px;">Send my results via:</div>
       <div class="contact-toggle">
-        <button class="toggle-btn active" id="toggle-email" onclick="switchContact('email')">&#128231; Email</button>
-        <button class="toggle-btn" id="toggle-phone" onclick="switchContact('phone')">&#128241; Text message</button>
+        <button class="toggle-btn active" id="toggle-email" onclick="switchContact('email')">Email</button>
+        <button class="toggle-btn" id="toggle-phone" onclick="switchContact('phone')">Text message</button>
       </div>
-      <div class="field-group"><label>Your first name *</label><input type="text" id="input-name" placeholder="e.g. Sarah"></div>
-      <div class="field-group" id="email-field"><label>Email address *</label><input type="email" id="input-email" placeholder="sarah@example.com"></div>
-      <div class="field-group" id="phone-field" style="display:none"><label>Cell phone number *</label><input type="tel" id="input-phone" placeholder="(941) 555-0100"></div>
-      <p class="disclaimer">Your information is shared only with Julie Willett and will never be sold or spammed. By submitting you agree to be contacted regarding your results.</p>
+      <div class="field-group"><label>Your first name</label><input type="text" id="input-name" placeholder="e.g. Sarah"></div>
+      <div class="field-group" id="email-field"><label>Email address</label><input type="email" id="input-email" placeholder="sarah@example.com"></div>
+      <div class="field-group" id="phone-field" style="display:none"><label>Cell phone number</label><input type="tel" id="input-phone" placeholder="(941) 555-0100"></div>
+      <p class="disclaimer">Your information is shared only with Julie Willett and will never be sold or spammed.</p>
       <div class="error-msg" id="contact-error">Please fill in all required fields above.</div>
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep('contact')">&larr; Back</button>
-        <button class="btn-next" onclick="submitContact()">Get my results &rarr;</button>
+        <button class="btn-back" onclick="prevStep('contact')">Back</button>
+        <button class="btn-next" onclick="submitContact()">Get my results</button>
       </div>
     </div>
-
     <div class="step results-step" id="step-results">
       <h2 id="results-heading">Your top neighborhood matches</h2>
       <p class="subtitle">Based on your answers, here are the Wellen Park communities that fit you best.</p>
       <div id="results-list"></div>
       <div class="cta-box">
-        <p>Ready for a tour &mdash; virtual or in person? I'm Julie Willett, I live in Wellen Park and know every neighborhood personally. Let's find your perfect fit!</p>
-        <a href="tel:+19412237088">&#128222; Call or text Julie: (941) 223-7088</a>
+        <p>Ready for a tour - virtual or in person? I am Julie Willett, I live in Wellen Park and know every neighborhood personally.</p>
+        <a href="tel:+19412237088">Call or text Julie: (941) 223-7088</a>
       </div>
       <div class="agent-card">
         <p class="agent-name">Julie Willett</p>
-        <p class="agent-title">Broker Associate &bull; REALTOR&reg; &bull; GRI &bull; NextHome Excellence</p>
-        <p class="agent-info"><a href="tel:+19412237088" class="agent-link">&#128222; (941) 223-7088</a></p>
-        <p class="agent-info"><a href="mailto:NextHomeJulie@gmail.com" class="agent-link">&#128231; NextHomeJulie@gmail.com</a></p>
-        <p class="agent-info"><a href="https://www.SellingWellen.com" target="_blank" class="agent-link">&#127760; SellingWellen.com</a></p>
+        <p class="agent-title">Broker Associate - REALTOR - GRI - NextHome Excellence</p>
+        <p class="agent-info"><a href="tel:+19412237088" class="agent-link">(941) 223-7088</a></p>
+        <p class="agent-info"><a href="mailto:NextHomeJulie@gmail.com" class="agent-link">NextHomeJulie@gmail.com</a></p>
+        <p class="agent-info"><a href="https://www.SellingWellen.com" target="_blank" class="agent-link">SellingWellen.com</a></p>
       </div>
       <div class="fair-housing">
         <div class="fh-logo">
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect width="26" height="26" rx="3" fill="#236A95"/><path d="M13 4L4 11H7V21H12V16H14V21H19V11H22L13 4Z" fill="white"/></svg>
           <span>Equal Housing Opportunity</span>
         </div>
-        <p>This quiz is for <strong>informational purposes only</strong> and does not constitute real estate advice. We are committed to the <strong>Fair Housing Act</strong> &mdash; we do not discriminate based on race, color, religion, sex, national origin, disability, familial status, or any other protected class. Results are based solely on your lifestyle preferences. &copy; 2026 NextHome Excellence. All rights reserved.</p>
+        <p>This quiz is for informational purposes only. We are committed to the Fair Housing Act. Results are based solely on your lifestyle preferences. Copyright 2026 NextHome Excellence. All rights reserved.</p>
       </div>
     </div>
-
   </div>
 </div>
 <script>
 var answers = {};
 var contactType = 'email';
-var GOLF_COMMUNITIES = ['Sarasota National','Esplanade at Wellen Park','Boca Royale Golf & Country Club'];
-var neighborhoods = [
-  {name:'IslandWalk',status:'resale',statusLabel:'Resale only',meta:'DiVosta Homes &bull; ~2,000 homes &bull; Freshwater canals &bull; $400s-$750s',tags:['Canal views','Two amenity centers','Resort pools','Tennis & pickleball','Active social scene'],scores:{couple:1,family_grown:1,resale:3,either_type:1,amenity_waterfront:3,amenity_resort:2,amenity_social:2,social_active:3,balanced:1,'350_500':1,'500_700':2,sfh_small:2,villa:1,flexible:1,golf_no:1,golf_optional:1,fees_medium:2,short_drive:1,walkable:1}},
-  {name:'Gran Paradiso',status:'resale',statusLabel:'Resale only',meta:'Lennar &bull; ~2,000 homes &bull; Tuscan-style &bull; $400s-$800s &bull; Steps to Downtown Wellen',tags:['Near downtown','Resort pool','Yoga studio','Tennis & pickleball','Gated'],scores:{couple:1,family_grown:1,retire_soon:2,resale:3,either_type:1,amenity_resort:2,amenity_social:3,social_active:2,balanced:2,'350_500':1,'500_700':2,'700_900':1,sfh_small:1,sfh_large:1,villa:1,flexible:1,golf_no:1,golf_optional:1,fees_medium:2,walkable:3}},
-  {name:'Grand Palm',status:'resale',statusLabel:'Resale only',meta:'Neal Communities &bull; 1,000+ acres &bull; No CDD fees &bull; $400s-$700s',tags:['No CDD fees','Water slides','Kayak launch','Private island','9 miles of trails'],scores:{family_kids:3,couple:1,family_grown:1,working:1,resale:3,either_type:1,amenity_nature:3,amenity_resort:2,nature_focus:3,balanced:1,'350_500':1,'500_700':2,'700_900':1,sfh_small:1,sfh_large:1,flexible:1,golf_no:2,golf_optional:1,fees_low:2,fees_medium:1,short_drive:1}},
-  {name:'Renaissance',status:'resale',statusLabel:'Resale only',meta:'Mattamy Homes &bull; Villas & SFH &bull; $350s-$550s &bull; Full resort amenities',tags:['Resort pool','Tennis & pickleball','Dog park','Fire pit','Gated'],scores:{couple:1,family_kids:1,retire_soon:1,active55:1,resale:3,either_type:1,amenity_resort:2,amenity_social:2,social_active:2,balanced:2,'350_500':2,'500_700':1,villa:2,sfh_small:1,flexible:1,golf_no:1,golf_optional:1,fees_medium:2,short_drive:2}},
-  {name:'Sarasota National',status:'resale',statusLabel:'Resale only',meta:'WCI/Lennar &bull; 1,500+ homes &bull; Bundled 18-hole golf &bull; $300s-$600s &bull; Tiki bar',tags:['Bundled golf','Championship course','Resort pool & Tiki bar','Tennis & pickleball','Fitness & spa'],scores:{couple:2,family_grown:1,retire_soon:2,active55:1,seasonal:1,resale:3,either_type:1,golf_bundled:3,golf_optional:1,amenity_resort:2,amenity_social:2,balanced:2,'350_500':1,'500_700':2,sfh_small:1,villa:1,condo:1,flexible:1,fees_medium:2,fees_high:1,short_drive:2}},
-  {name:'The Preserve',status:'resale',statusLabel:'Resale only',meta:'DR Horton &bull; ~200 homes &bull; Intimate & affordable &bull; $300s-$400s &bull; Low CDD',tags:['Small community','Affordable','Pool & clubhouse','Pickleball & bocce','Low fees'],scores:{couple:1,solo:1,family_grown:1,seasonal:2,resale:3,either_type:1,amenity_minimal:3,amenity_none:2,quiet_private:2,balanced:1,under350k:2,'350_500':2,sfh_small:2,villa:1,flexible:1,golf_no:2,fees_low:3,short_drive:1}},
-  {name:'Tortuga',status:'resale',statusLabel:'Resale only',meta:'Small quiet enclave &bull; ~100 homes &bull; Low-maintenance &bull; ~$500s',tags:['Very small community','Low maintenance','Privacy','Near Tamiami Trail','Quiet'],scores:{couple:1,solo:1,family_grown:1,seasonal:2,retire_soon:1,resale:3,either_type:1,quiet_private:3,amenity_minimal:2,amenity_none:3,'500_700':2,sfh_small:2,flexible:1,golf_no:2,fees_low:2,fees_medium:1,dont_care_loc:2,short_drive:1}},
-  {name:'Antigua',status:'resale',statusLabel:'Resale only',meta:'Lennar &bull; ~175 homes &bull; Gated &bull; $400s-$600s &bull; Water & preserve views',tags:['Gated','Water & preserve views','Maintenance-free','Single-story homes','Quiet'],scores:{couple:1,solo:1,family_grown:1,seasonal:2,resale:3,either_type:1,quiet_private:2,amenity_minimal:2,amenity_none:3,balanced:1,'350_500':2,'500_700':1,sfh_small:2,flexible:1,golf_no:1,fees_low:2,fees_medium:1,short_drive:1,walkable:1}},
-  {name:'Oasis',status:'resale',statusLabel:'Resale only',meta:'M/I Homes &bull; Smaller community &bull; $500s-$700s &bull; Pool, pickleball, trails',tags:['Quiet setting','Pool & clubhouse','Pickleball','Walking trails','Preserve views'],scores:{couple:1,solo:1,family_grown:1,retire_soon:1,resale:3,either_type:1,quiet_private:2,nature_focus:2,amenity_minimal:2,amenity_none:1,'500_700':2,sfh_small:2,sfh_large:1,flexible:1,golf_no:2,fees_medium:1,fees_low:1,short_drive:1,dont_care_loc:1}},
-  {name:'Wellen Park Golf & Country Club',status:'new',statusLabel:'New construction',meta:'Lennar &bull; ~1,400 homes &bull; Bundled golf &bull; Condos from $230s to SFH over $1M',tags:['Bundled golf','Condos & SFH','Resort amenities','On-site restaurant','Gated'],scores:{couple:2,family_grown:1,retire_soon:2,active55:1,seasonal:1,new_construction:3,either_type:1,golf_bundled:3,amenity_resort:2,amenity_social:3,social_active:2,balanced:1,under350k:1,'350_500':1,'500_700':2,'700_900':2,over900k:1,sfh_small:1,sfh_large:2,condo:2,flexible:1,fees_high:2,fees_medium:1,short_drive:1}},
-  {name:'Boca Royale Golf & Country Club',status:'both',statusLabel:'New + resale',meta:'Neal Communities &bull; 1,000 acres &bull; Optional 18-hole golf &bull; $350s+',tags:['Optional golf','Championship course','Villas & SFH','Lakes & preserves','Gated'],scores:{couple:2,family_grown:1,retire_soon:2,active55:1,new_construction:2,resale:1,either_type:2,golf_optional:3,golf_bundled:1,amenity_resort:2,nature_focus:2,balanced:2,quiet_private:1,'350_500':2,'500_700':2,'700_900':1,villa:2,sfh_small:1,sfh_large:1,flexible:1,fees_medium:2,short_drive:2,dont_care_loc:1}},
-  {name:'Brightmore',status:'new',statusLabel:'New construction - 55+ only',meta:'Mattamy Homes &bull; 55+ age-restricted &bull; Villas & SFH from mid-$300s &bull; 9 pickleball courts',tags:['55+ only','Stadium pickleball court','Resort & lap pools','Wellness programs','Social activities'],scores:{active55:3,retire_soon:2,couple:1,solo:1,new_construction:3,either_type:1,golf_no:2,golf_optional:1,amenity_resort:3,amenity_social:3,social_active:3,balanced:1,'350_500':2,'500_700':1,villa:2,sfh_small:1,flexible:1,fees_medium:2,short_drive:1}},
-  {name:'Sunstone',status:'new',statusLabel:'New construction',meta:'Mattamy Homes &bull; All-ages community &bull; Villas & SFH &bull; $350s-$600s',tags:['All-ages community','Resort pool','Pickleball & bocce','Dog park','Tot lot'],scores:{family_kids:3,couple:1,working:2,new_construction:3,either_type:1,golf_no:2,amenity_resort:2,amenity_social:1,balanced:2,social_active:1,'350_500':2,'500_700':2,villa:1,sfh_small:2,sfh_large:1,flexible:1,fees_medium:2,short_drive:1}},
-  {name:'Lakespur',status:'new',statusLabel:'New construction',meta:'Pulte, Lennar, Mattamy &bull; All-ages &bull; SFH & condos &bull; $300s-$500s',tags:['All ages','Future school trail','Lake & preserve views','Condos available','Multiple builders'],scores:{family_kids:3,couple:1,working:2,new_construction:3,either_type:1,golf_no:2,golf_optional:1,amenity_resort:1,amenity_nature:2,balanced:2,under350k:1,'350_500':2,'500_700':1,sfh_small:2,condo:2,flexible:1,fees_medium:2,short_drive:1}},
-  {name:'Palmera',status:'new',statusLabel:'New construction',meta:'6 builders &bull; Luxury SFH, townhomes & condos &bull; $400s-$700s+ &bull; On-site dining',tags:['Golf simulator','On-site dining','Splash pad','Coastal clubhouse','Multiple builders'],scores:{couple:1,family_grown:1,working:1,family_kids:1,new_construction:3,either_type:1,golf_optional:1,golf_no:1,amenity_resort:2,amenity_social:3,social_active:2,balanced:2,'500_700':2,'700_900':1,sfh_large:2,sfh_small:1,condo:1,villa:1,flexible:1,fees_medium:2,walkable:2,short_drive:1}},
-  {name:'Everly',status:'new',statusLabel:'New construction',meta:'Custom & semi-custom luxury estates &bull; $700s-$2M+ &bull; Gated &bull; Exclusive',tags:['Custom estates','Semi-custom luxury','Gated','Private setting','Exclusive'],scores:{couple:1,family_grown:1,working:1,new_construction:3,either_type:1,golf_no:1,golf_optional:1,quiet_private:3,balanced:1,'700_900':2,over900k:3,sfh_large:3,flexible:1,fees_medium:1,fees_high:1,dont_care_loc:2,short_drive:1}},
-  {name:'Oakbend',status:'new',statusLabel:'Pre-construction - Now selling',meta:'ICI Homes, Toll Brothers + more &bull; SFH from high $600s &bull; Gated',tags:['Pre-construction pricing','Multiple builders','Gated','Resort pool & pickleball','Luxury SFH'],scores:{couple:1,family_grown:1,working:1,family_kids:1,new_construction:3,either_type:1,golf_no:1,golf_optional:1,amenity_resort:2,quiet_private:1,balanced:1,'700_900':2,over900k:2,sfh_large:3,sfh_small:1,flexible:1,fees_medium:1,fees_high:1,short_drive:1}},
-  {name:'Esplanade at Wellen Park',status:'new',statusLabel:'New - Opening 2026',meta:'Taylor Morrison &bull; Optional golf (Myakka Pines) &bull; Resort + wellness &bull; 2026',tags:['Optional golf','Wellness programs','Concierge services','Resort-style','Opening 2026'],scores:{couple:2,family_grown:1,retire_soon:2,active55:1,new_construction:3,either_type:1,golf_optional:3,golf_bundled:1,amenity_resort:3,amenity_social:2,social_active:2,balanced:2,'500_700':1,'700_900':2,over900k:1,sfh_large:2,sfh_small:1,flexible:1,fees_high:2,fees_medium:1,short_drive:1}},
-  {name:'Ashcombe',status:'new',statusLabel:'New construction',meta:'Modern townhomes &bull; Heart of Wellen Park &bull; Walkable &bull; Affordable entry',tags:['Townhomes','Walkable','Modern design','Central location','Affordable'],scores:{working:2,family_kids:1,couple:1,solo:1,new_construction:3,either_type:1,golf_no:2,amenity_resort:1,balanced:2,under350k:1,'350_500':2,condo:3,villa:1,flexible:1,fees_medium:1,fees_low:1,walkable:3,short_drive:1}},
-  {name:'Sunstone Lakeside',status:'new',statusLabel:'Newest community',meta:'Brand-new community &bull; Lake views &bull; Contact Julie for latest info',tags:['Brand new','Lake views','Latest release','Contact for pricing'],scores:{new_construction:3,either_type:1,amenity_resort:1,amenity_nature:2,nature_focus:2,balanced:1,'350_500':1,'500_700':1,sfh_small:1,flexible:2,fees_medium:1,short_drive:1}}
+var GOLF = ['Sarasota National','Esplanade at Wellen Park','Boca Royale Golf & Country Club'];
+var hoods = [
+  {n:'IslandWalk',s:'resale',sl:'Resale only',m:'DiVosta Homes - 2000 homes - Canals - $400s-$750s',t:['Canal views','Two amenity centers','Resort pools','Tennis & pickleball'],sc:{couple:1,resale:3,either_type:1,amenity_waterfront:3,amenity_resort:2,amenity_social:2,social_active:3,balanced:1,'350_500':1,'500_700':2,sfh_small:2,villa:1,flexible:1,golf_no:1,fees_medium:2,short_drive:1,walkable:1}},
+  {n:'Gran Paradiso',s:'resale',sl:'Resale only',m:'Lennar - 2000 homes - Tuscan style - $400s-$800s - Near Downtown',t:['Near downtown','Resort pool','Yoga studio','Tennis & pickleball'],sc:{couple:1,retire_soon:2,resale:3,either_type:1,amenity_resort:2,amenity_social:3,social_active:2,balanced:2,'500_700':2,'700_900':1,sfh_small:1,sfh_large:1,villa:1,flexible:1,golf_no:1,fees_medium:2,walkable:3}},
+  {n:'Grand Palm',s:'resale',sl:'Resale only',m:'Neal Communities - 1000+ acres - No CDD fees - $400s-$700s',t:['No CDD fees','Water slides','Kayak launch','9 miles of trails'],sc:{family_kids:3,couple:1,resale:3,either_type:1,amenity_nature:3,amenity_resort:2,nature_focus:3,'500_700':2,'700_900':1,sfh_small:1,sfh_large:1,flexible:1,golf_no:2,fees_low:2,short_drive:1}},
+  {n:'Renaissance',s:'resale',sl:'Resale only',m:'Mattamy Homes - Villas & SFH - $350s-$550s - Full resort amenities',t:['Resort pool','Tennis & pickleball','Dog park','Fire pit'],sc:{couple:1,retire_soon:1,active55:1,resale:3,either_type:1,amenity_resort:2,amenity_social:2,social_active:2,balanced:2,'350_500':2,'500_700':1,villa:2,sfh_small:1,flexible:1,golf_no:1,fees_medium:2,short_drive:2}},
+  {n:'Sarasota National',s:'resale',sl:'Resale only',m:'WCI/Lennar - 1500+ homes - Bundled golf - $300s-$600s - Tiki bar',t:['Bundled golf','Championship course','Resort pool & Tiki bar','Tennis & pickleball'],sc:{couple:2,retire_soon:2,active55:1,resale:3,either_type:1,golf_bundled:3,golf_optional:1,amenity_resort:2,amenity_social:2,'350_500':1,'500_700':2,villa:1,condo:1,flexible:1,fees_medium:2,short_drive:2}},
+  {n:'The Preserve',s:'resale',sl:'Resale only',m:'DR Horton - 200 homes - Affordable - $300s-$400s - Low CDD',t:['Small community','Affordable','Pool & clubhouse','Low fees'],sc:{couple:1,solo:1,seasonal:2,resale:3,either_type:1,amenity_minimal:3,amenity_none:2,quiet_private:2,under350k:2,'350_500':2,sfh_small:2,villa:1,flexible:1,golf_no:2,fees_low:3,short_drive:1}},
+  {n:'Tortuga',s:'resale',sl:'Resale only',m:'Small quiet enclave - 100 homes - Low maintenance - $500s',t:['Very small community','Low maintenance','Privacy','Quiet'],sc:{couple:1,solo:1,seasonal:2,retire_soon:1,resale:3,either_type:1,quiet_private:3,amenity_minimal:2,amenity_none:3,'500_700':2,sfh_small:2,flexible:1,golf_no:2,fees_low:2,dont_care_loc:2,short_drive:1}},
+  {n:'Antigua',s:'resale',sl:'Resale only',m:'Lennar - 175 homes - Gated - $400s-$600s - Water & preserve views',t:['Gated','Water & preserve views','Maintenance-free','Quiet'],sc:{couple:1,solo:1,seasonal:2,resale:3,either_type:1,quiet_private:2,amenity_minimal:2,amenity_none:3,'350_500':2,'500_700':1,sfh_small:2,flexible:1,golf_no:1,fees_low:2,short_drive:1,walkable:1}},
+  {n:'Oasis',s:'resale',sl:'Resale only',m:'M/I Homes - Smaller community - $500s-$700s - Pool, pickleball, trails',t:['Quiet setting','Pool & clubhouse','Pickleball','Walking trails'],sc:{couple:1,solo:1,retire_soon:1,resale:3,either_type:1,quiet_private:2,nature_focus:2,amenity_minimal:2,amenity_none:1,'500_700':2,sfh_small:2,flexible:1,golf_no:2,fees_low:1,short_drive:1}},
+  {n:'Wellen Park Golf & Country Club',s:'new',sl:'New construction',m:'Lennar - 1400 homes - Bundled golf - Condos from $230s to SFH over $1M',t:['Bundled golf','Condos & SFH','Resort amenities','On-site restaurant'],sc:{couple:2,retire_soon:2,active55:1,new_construction:3,either_type:1,golf_bundled:3,amenity_resort:2,amenity_social:3,'350_500':1,'500_700':2,'700_900':2,sfh_small:1,sfh_large:2,condo:2,flexible:1,fees_high:2,short_drive:1}},
+  {n:'Boca Royale Golf & Country Club',s:'both',sl:'New + resale',m:'Neal Communities - 1000 acres - Optional golf - $350s+',t:['Optional golf','Championship course','Villas & SFH','Lakes & preserves'],sc:{couple:2,retire_soon:2,active55:1,new_construction:2,resale:1,either_type:2,golf_optional:3,golf_bundled:1,amenity_resort:2,nature_focus:2,balanced:2,'350_500':2,'500_700':2,villa:2,sfh_small:1,flexible:1,fees_medium:2,short_drive:2}},
+  {n:'Brightmore',s:'new',sl:'New construction - 55+ only',m:'Mattamy Homes - 55+ only - Villas & SFH from mid $300s - 9 pickleball courts',t:['55+ only','Stadium pickleball','Resort pools','Wellness programs'],sc:{active55:3,retire_soon:2,new_construction:3,either_type:1,golf_no:2,amenity_resort:3,amenity_social:3,social_active:3,'350_500':2,'500_700':1,villa:2,sfh_small:1,flexible:1,fees_medium:2,short_drive:1}},
+  {n:'Sunstone',s:'new',sl:'New construction',m:'Mattamy Homes - All-ages - Villas & SFH - $350s-$600s',t:['All-ages community','Resort pool','Pickleball & bocce','Dog park'],sc:{family_kids:3,couple:1,working:2,new_construction:3,either_type:1,golf_no:2,amenity_resort:2,balanced:2,'350_500':2,'500_700':2,villa:1,sfh_small:2,flexible:1,fees_medium:2,short_drive:1}},
+  {n:'Lakespur',s:'new',sl:'New construction',m:'Pulte, Lennar, Mattamy - All-ages - SFH & condos - $300s-$500s',t:['All ages','Future school trail','Lake & preserve views','Condos available'],sc:{family_kids:3,couple:1,working:2,new_construction:3,either_type:1,golf_no:2,amenity_nature:2,balanced:2,under350k:1,'350_500':2,'500_700':1,sfh_small:2,condo:2,flexible:1,fees_medium:2,short_drive:1}},
+  {n:'Palmera',s:'new',sl:'New construction',m:'6 builders - Luxury SFH, townhomes & condos - $400s-$700s+ - On-site dining',t:['Golf simulator','On-site dining','Splash pad','Coastal clubhouse'],sc:{couple:1,working:1,new_construction:3,either_type:1,amenity_resort:2,amenity_social:3,social_active:2,balanced:2,'500_700':2,'700_900':1,sfh_large:2,condo:1,villa:1,flexible:1,fees_medium:2,walkable:2,short_drive:1}},
+  {n:'Everly',s:'new',sl:'New construction',m:'Custom & semi-custom luxury estates - $700s-$2M+ - Gated - Exclusive',t:['Custom estates','Semi-custom luxury','Gated','Private setting'],sc:{couple:1,new_construction:3,either_type:1,quiet_private:3,'700_900':2,over900k:3,sfh_large:3,flexible:1,fees_high:1,dont_care_loc:2,short_drive:1}},
+  {n:'Oakbend',s:'new',sl:'Pre-construction - Now selling',m:'ICI Homes, Toll Brothers + more - SFH from high $600s - Gated',t:['Pre-construction pricing','Multiple builders','Gated','Luxury SFH'],sc:{couple:1,working:1,new_construction:3,either_type:1,amenity_resort:2,quiet_private:1,'700_900':2,over900k:2,sfh_large:3,flexible:1,fees_high:1,short_drive:1}},
+  {n:'Esplanade at Wellen Park',s:'new',sl:'New - Opening 2026',m:'Taylor Morrison - Optional golf - Resort + wellness concierge - 2026',t:['Optional golf','Wellness programs','Concierge services','Resort-style'],sc:{couple:2,retire_soon:2,active55:1,new_construction:3,either_type:1,golf_optional:3,golf_bundled:1,amenity_resort:3,amenity_social:2,'500_700':1,'700_900':2,sfh_large:2,flexible:1,fees_high:2,short_drive:1}},
+  {n:'Ashcombe',s:'new',sl:'New construction',m:'Modern townhomes - Heart of Wellen Park - Walkable - Affordable entry',t:['Townhomes','Walkable','Modern design','Affordable'],sc:{working:2,couple:1,solo:1,new_construction:3,either_type:1,golf_no:2,balanced:2,under350k:1,'350_500':2,condo:3,flexible:1,fees_low:1,walkable:3,short_drive:1}},
+  {n:'Sunstone Lakeside',s:'new',sl:'Newest community',m:'Brand-new community - Lake views - Contact Julie for latest info',t:['Brand new','Lake views','Latest release','Contact for pricing'],sc:{new_construction:3,either_type:1,amenity_nature:2,nature_focus:2,'350_500':1,'500_700':1,flexible:2,fees_medium:1,short_drive:1}}
 ];
 
-function selectOption(btn, qIndex, value) {
-  var group = document.querySelector('[data-q="' + qIndex + '"]');
-  var btns = group.getElementsByClassName('option-btn');
-  for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('selected'); }
+function selectOption(btn,q,val){
+  var g=document.querySelector('[data-q="'+q+'"]');
+  var bs=g.getElementsByClassName('option-btn');
+  for(var i=0;i<bs.length;i++){bs[i].classList.remove('selected');}
   btn.classList.add('selected');
-  answers[qIndex] = value;
-  var nb = document.getElementById('next-' + qIndex);
-  if (nb) nb.disabled = false;
+  answers[q]=val;
+  var nb=document.getElementById('next-'+q);
+  if(nb){nb.disabled=false;}
 }
 
-function updateProgress(n) {
-  document.getElementById('progressFill').style.width = Math.min(Math.round(n/11*100),100) + '%';
-  document.getElementById('progressLabel').textContent = n < 11 ? 'Question '+(n+1)+' of 11' : 'Results ready!';
+function updateProgress(n){
+  document.getElementById('progressFill').style.width=Math.min(Math.round(n/11*100),100)+'%';
+  document.getElementById('progressLabel').textContent=n<11?'Question '+(n+1)+' of 11':'Results ready!';
 }
 
-function showStep(id) {
-  var steps = document.getElementsByClassName('step');
-  for (var i = 0; i < steps.length; i++) { steps[i].classList.remove('active'); }
-  document.getElementById('step-' + id).classList.add('active');
+function showStep(id){
+  var ss=document.getElementsByClassName('step');
+  for(var i=0;i<ss.length;i++){ss[i].classList.remove('active');}
+  document.getElementById('step-'+id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function nextStep(n) {
-  if (answers[n] === undefined) return;
-  if (n === 10) { updateProgress(11); showStep('contact'); }
-  else { updateProgress(n+1); showStep(n+1); }
+function nextStep(n){
+  if(answers[n]===undefined)return;
+  if(n===10){updateProgress(11);showStep('contact');}
+  else{updateProgress(n+1);showStep(n+1);}
 }
 
-function prevStep(n) {
-  if (n === 'contact') { updateProgress(10); showStep(10); }
-  else if (n > 0) { updateProgress(n-1); showStep(n-1); }
+function prevStep(n){
+  if(n==='contact'){updateProgress(10);showStep(10);}
+  else if(n>0){updateProgress(n-1);showStep(n-1);}
 }
 
-function switchContact(type) {
-  contactType = type;
-  document.getElementById('email-field').style.display = type==='email'?'block':'none';
-  document.getElementById('phone-field').style.display = type==='phone'?'block':'none';
-  document.getElementById('toggle-email').classList.toggle('active', type==='email');
-  document.getElementById('toggle-phone').classList.toggle('active', type==='phone');
+function switchContact(t){
+  contactType=t;
+  document.getElementById('email-field').style.display=t==='email'?'block':'none';
+  document.getElementById('phone-field').style.display=t==='phone'?'block':'none';
+  document.getElementById('toggle-email').classList.toggle('active',t==='email');
+  document.getElementById('toggle-phone').classList.toggle('active',t==='phone');
 }
 
-function submitContact() {
-  var name = document.getElementById('input-name').value.trim();
-  var email = document.getElementById('input-email').value.trim();
-  var phone = document.getElementById('input-phone').value.trim();
-  var err = document.getElementById('contact-error');
-  if (!name || (contactType==='email' && !email) || (contactType==='phone' && !phone)) { err.style.display='block'; return; }
-  err.style.display = 'none';
-  var btn = document.querySelector('#step-contact .btn-next');
-  btn.disabled = true; btn.textContent = 'Sending...';
-  var qLabels = ['Who is moving','Stage of life','Budget','Home type','Golf','Community vibe','HOA/CDD fees','Amenities','Proximity','New vs resale','Timeline'];
-  var summary = '';
-  for (var i = 0; i < 11; i++) { if (answers[i]) summary += qLabels[i] + ': ' + answers[i] + '
-'; }
-  var fd = new FormData();
-  fd.append('_subject', 'New Wellen Park Quiz Lead: ' + name);
-  fd.append('Name', name);
-  fd.append('Email', email || 'Not provided');
-  fd.append('Phone', phone || 'Not provided');
-  fd.append('Preferred contact', contactType==='email'?'Email':'Text');
-  fd.append('Quiz answers', summary);
-  fd.append('Submitted at', new Date().toLocaleString());
-  fetch('https://formspree.io/f/mykbaopl', {method:'POST',body:fd,headers:{'Accept':'application/json'}})
-  .then(function(r) { btn.disabled=false; btn.textContent='Get my results →'; showResults(name); })
-  .catch(function() { btn.disabled=false; btn.textContent='Get my results →'; showResults(name); });
+function submitContact(){
+  var name=document.getElementById('input-name').value.trim();
+  var email=document.getElementById('input-email').value.trim();
+  var phone=document.getElementById('input-phone').value.trim();
+  var err=document.getElementById('contact-error');
+  if(!name||(contactType==='email'&&!email)||(contactType==='phone'&&!phone)){err.style.display='block';return;}
+  err.style.display='none';
+  var btn=document.querySelector('#step-contact .btn-next');
+  btn.disabled=true;btn.textContent='Sending...';
+  var summary='';
+  var ql=['Who is moving','Stage of life','Budget','Home type','Golf','Community vibe','HOA/CDD fees','Amenities','Proximity','New vs resale','Timeline'];
+  for(var i=0;i<11;i++){if(answers[i])summary+=ql[i]+': '+answers[i]+'
+';}
+  var fd=new FormData();
+  fd.append('_subject','New Wellen Park Quiz Lead: '+name);
+  fd.append('Name',name);
+  fd.append('Email',email||'Not provided');
+  fd.append('Phone',phone||'Not provided');
+  fd.append('Contact preference',contactType==='email'?'Email':'Text');
+  fd.append('Quiz answers',summary);
+  fd.append('Submitted',new Date().toLocaleString());
+  fetch('https://formspree.io/f/mykbaopl',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+  .then(function(){btn.disabled=false;btn.textContent='Get my results';showResults(name);})
+  .catch(function(){btn.disabled=false;btn.textContent='Get my results';showResults(name);});
 }
 
-function statusBadge(s, l) {
-  var c = s==='new'?'status-new':s==='resale'?'status-resale':'status-both';
+function badge(s,l){
+  var c=s==='new'?'status-new':s==='resale'?'status-resale':'status-both';
   return '<span class="neighborhood-status '+c+'">'+l+'</span>';
 }
 
-function showResults(name) {
-  var noGolf = false;
-  for (var k in answers) { if (answers[k]==='golf_no') { noGolf=true; break; } }
-  var scored = [];
-  for (var i = 0; i < neighborhoods.length; i++) {
-    var n = neighborhoods[i];
-    if (noGolf && GOLF_COMMUNITIES.indexOf(n.name) > -1) continue;
-    var score = 0;
-    for (var k in answers) { if (n.scores[answers[k]]) score += n.scores[answers[k]]; }
-    scored.push({name:n.name,status:n.status,statusLabel:n.statusLabel,meta:n.meta,tags:n.tags,score:score});
+function showResults(name){
+  var noGolf=false;
+  for(var k in answers){if(answers[k]==='golf_no'){noGolf=true;break;}}
+  var scored=[];
+  for(var i=0;i<hoods.length;i++){
+    var h=hoods[i];
+    if(noGolf&&GOLF.indexOf(h.n)>-1)continue;
+    var score=0;
+    for(var k in answers){if(h.sc[answers[k]])score+=h.sc[answers[k]];}
+    scored.push({n:h.n,s:h.s,sl:h.sl,m:h.m,t:h.t,score:score});
   }
   scored.sort(function(a,b){return b.score-a.score;});
-  var top = scored.slice(0,5);
-  var max = top[0]?top[0].score:1;
-  var html = '';
-  top.forEach(function(n,i) {
-    var pct = Math.round(n.score/max*100);
-    html += '<div class="neighborhood-card'+(i===0?' top-pick':'')+'">'+
+  var top=scored.slice(0,5);
+  var max=top[0]?top[0].score:1;
+  var html='';
+  for(var i=0;i<top.length;i++){
+    var nb=top[i];
+    var pct=Math.round(nb.score/max*100);
+    var tags='';
+    for(var j=0;j<nb.t.length;j++){tags+='<span class="tag">'+nb.t[j]+'</span>';}
+    html+='<div class="neighborhood-card'+(i===0?' top-pick':'')+'">'+
       (i===0?'<div class="top-badge">Best match</div>':'')+
-      '<div class="neighborhood-name">'+n.name+'</div>'+
-      statusBadge(n.status,n.statusLabel)+
-      '<div class="neighborhood-meta">'+n.meta+'</div>'+
+      '<div class="neighborhood-name">'+nb.n+'</div>'+
+      badge(nb.s,nb.sl)+
+      '<div class="neighborhood-meta">'+nb.m+'</div>'+
       '<div class="match-bar-wrap"><div class="match-bar-bg"><div class="match-bar-fill" style="width:'+pct+'%"></div></div><div class="match-pct">'+pct+'%</div></div>'+
-      '<div class="tags">'+n.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div>'+
-      '</div>';
-  });
-  document.getElementById('results-list').innerHTML = html;
-  if (name) document.getElementById('results-heading').textContent = name+', here are your top matches!';
+      '<div class="tags">'+tags+'</div></div>';
+  }
+  document.getElementById('results-list').innerHTML=html;
+  if(name)document.getElementById('results-heading').textContent=name+', here are your top matches!';
   updateProgress(11);
   showStep('results');
 }
