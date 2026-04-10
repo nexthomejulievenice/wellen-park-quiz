@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wellen Park Neighborhood Fit Score | Julie Willett</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--orange:#FF6C2C;--blue:#236A95;--orange-light:#FF8A54;--blue-light:#2E85BB;--blue-dark:#1A4F70;--cream:#FFF8F4;--sand:#F5EDE4;--text:#1C2B3A;--muted:#6B7D8E;--radius:16px;--shadow:0 8px 40px rgba(35,106,149,0.12);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+.header{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 60%,var(--blue-light) 100%);color:white;padding:24px 20px;text-align:center;position:relative;overflow:hidden;}
+.brand-bar{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;flex-wrap:wrap;}
+.nexthome-logo{background:white;border-radius:10px;padding:8px 16px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(0,0,0,0.2);}
+.nexthome-logo svg{width:32px;height:32px;}
+.nexthome-text{font-weight:700;font-size:14px;color:var(--blue-dark);line-height:1.1;}
+.nexthome-text span{color:var(--orange);font-size:11px;font-weight:500;display:block;}
+.header-tagline{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:8px;}
+.header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,44px);font-weight:900;line-height:1.15;margin-bottom:10px;}
+.header h1 span{color:#FF8A54;}
+.header-sub{font-size:15px;color:rgba(255,255,255,0.85);max-width:560px;margin:0 auto 20px;line-height:1.6;}
+.agent-bar{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:50px;display:inline-flex;align-items:center;gap:12px;padding:8px 20px;font-size:13px;flex-wrap:wrap;justify-content:center;}
+.agent-bar a{color:rgba(255,255,255,0.9);text-decoration:none;}
+.dot{opacity:0.4;}
+.progress-wrap{max-width:700px;margin:0 auto;padding:24px 20px 0;}
+.progress-info{display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;color:var(--muted);font-weight:500;}
+.progress-bar-bg{background:#DDE6ED;border-radius:99px;height:6px;overflow:hidden;}
+.progress-bar-fill{background:linear-gradient(90deg,var(--orange),var(--orange-light));height:100%;border-radius:99px;transition:width 0.5s ease;}
+.main{max-width:700px;margin:0 auto;padding:20px;}
+.card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(24px,5vw,48px);margin-bottom:20px;}
+.step{display:none;}
+.step.active{display:block;animation:fadeIn 0.35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--orange);color:white;border-radius:50%;font-weight:700;font-size:14px;margin-bottom:14px;}
+.question-text{font-family:'Playfair Display',serif;font-size:clamp(18px,3.5vw,24px);font-weight:700;color:var(--blue-dark);margin-bottom:6px;line-height:1.35;}
+.question-hint{font-size:13px;color:var(--muted);margin-bottom:22px;}
+.options{display:flex;flex-direction:column;gap:10px;}
+.opt{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border:2px solid #E3ECF2;border-radius:12px;cursor:pointer;transition:all 0.22s ease;background:white;text-align:left;width:100%;font-family:'DM Sans',sans-serif;color:var(--text);}
+.opt:hover{border-color:#FF8A54;background:#FFF4EE;}
+.opt.selected{border-color:var(--orange);background:#FFF4EE;}
+.opt.selected .opt-radio{background:var(--orange);border-color:var(--orange);}
+.opt.selected .opt-radio::after{display:block;}
+.opt-radio{width:20px;height:20px;border-radius:50%;border:2px solid #CBD5E0;flex-shrink:0;margin-top:2px;position:relative;transition:all 0.2s;}
+.opt-radio::after{content:'';display:none;position:absolute;top:3px;left:3px;width:10px;height:10px;background:white;border-radius:50%;}
+.opt-label{font-size:15px;font-weight:500;line-height:1.4;}
+.opt-desc{font-size:12px;color:var(--muted);margin-top:2px;}
+.nav-row{display:flex;gap:12px;margin-top:28px;justify-content:flex-end;}
+.btn{padding:13px 28px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;}
+.btn-back{background:transparent;color:var(--muted);border:2px solid #DDE6ED;}
+.btn-back:hover{border-color:var(--blue);color:var(--blue);}
+.btn-next{background:linear-gradient(135deg,var(--orange),var(--orange-light));color:white;box-shadow:0 4px 14px rgba(255,108,44,0.35);}
+.btn-next:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,108,44,0.45);}
+.btn-next:disabled{opacity:0.45;cursor:not-allowed;transform:none;box-shadow:none;}
+.contact-form label{display:block;font-size:13px;font-weight:600;color:var(--blue-dark);margin-bottom:6px;margin-top:16px;}
+.contact-form input{width:100%;padding:13px 16px;border:2px solid #E3ECF2;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);outline:none;}
+.contact-form input:focus{border-color:var(--orange);}
+.consent-row{display:flex;align-items:flex-start;gap:10px;margin-top:18px;padding:14px;background:var(--sand);border-radius:10px;}
+.consent-row input[type=checkbox]{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--orange);}
+.consent-text{font-size:13px;color:var(--muted);line-height:1.5;}
+.consent-text strong{color:var(--text);}
+.disclaimer-box{background:#EFF5FA;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:18px;font-size:12px;color:var(--muted);line-height:1.6;}
+#results{display:none;}
+.results-header{text-align:center;padding-bottom:24px;border-bottom:2px solid var(--sand);margin-bottom:28px;}
+.results-header h2{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,32px);color:var(--blue-dark);margin-bottom:8px;}
+.results-header p{color:var(--muted);font-size:15px;}
+.neighborhood-card{border:2px solid #E3ECF2;border-radius:14px;padding:20px;margin-bottom:14px;}
+.neighborhood-card:first-child{border-color:var(--orange);background:linear-gradient(135deg,#FFF8F4,white);}
+.nc-rank{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);}
+.nc-rank.top{background:var(--orange);color:white;padding:3px 10px;border-radius:99px;display:inline-block;margin-bottom:4px;}
+.nc-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--blue-dark);margin-bottom:8px;}
+.nc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.tag{padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;}
+.tag-golf{background:#E8F5E9;color:#2E7D32;}
+.tag-55{background:#E3F2FD;color:#1565C0;}
+.tag-allages{background:#FFF3E0;color:#E65100;}
+.tag-luxury{background:#F3E5F5;color:#6A1B9A;}
+.tag-new{background:#E0F7FA;color:#006064;}
+.tag-resale{background:#F1F8E9;color:#33691E;}
+.tag-both{background:#E8EAF6;color:#283593;}
+.tag-lowfee{background:#E8F5E9;color:#2E7D32;}
+.tag-highfee{background:#FCE4EC;color:#880E4F;}
+.tag-gated{background:#E3F2FD;color:#1565C0;}
+.nc-desc{font-size:14px;color:var(--muted);line-height:1.6;}
+.score-bar-wrap{margin-top:12px;}
+.score-label{font-size:12px;font-weight:600;color:var(--blue-dark);margin-bottom:4px;}
+.score-bar-bg{background:#E3ECF2;border-radius:99px;height:8px;overflow:hidden;}
+.score-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--orange),var(--orange-light));}
+.cta-box{background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:white;border-radius:var(--radius);padding:28px;text-align:center;margin-top:24px;}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:8px;}
+.cta-box p{font-size:14px;color:rgba(255,255,255,0.8);margin-bottom:18px;}
+.cta-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-btn{padding:11px 22px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none;display:inline-block;}
+.cta-btn-orange{background:var(--orange);color:white;}
+.cta-btn-white{background:white;color:var(--blue-dark);}
+footer{max-width:700px;margin:0 auto;padding:0 20px 40px;text-align:center;font-size:12px;color:var(--muted);line-height:1.7;}
+footer a{color:var(--blue);text-decoration:none;}
+.loading-screen{display:none;text-align:center;padding:60px 20px;}
+.spinner{width:48px;height:48px;border:4px solid #E3ECF2;border-top-color:var(--orange);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 20px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-screen p{color:var(--muted);font-size:15px;}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--blue-dark);color:white;padding:14px 24px;border-radius:50px;font-size:14px;font-weight:500;transition:transform 0.4s ease;z-index:999;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+@media(max-width:480px){.nav-row{flex-direction:column-reverse;}.btn{width:100%;text-align:center;}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="brand-bar">
+    <div class="nexthome-logo">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="8" fill="#FF6C2C"/><path d="M8 28V16l12-8 12 8v12H24v-8h-8v8z" fill="white"/><circle cx="20" cy="16" r="3" fill="white" opacity="0.5"/></svg>
+      <div class="nexthome-text">NextHome Excellence<span>Julie Willett, Realtor&reg;</span></div>
+    </div>
+  </div>
+  <div class="header-tagline">Wellen Park Lifestyle Assessment</div>
+  <h1>Find Your Perfect <span>Wellen Park</span> Neighborhood</h1>
+  <p class="header-sub">Answer 13 quick questions and discover which of Wellen Park's stunning communities truly matches your lifestyle.</p>
+  <div class="agent-bar">
+    <span>Julie Willett</span><span class="dot">&middot;</span>
+    <a href="tel:9412237088">941-223-7088</a><span class="dot">&middot;</span>
+    <a href="mailto:nexthomejulie@gmail.com">nexthomejulie@gmail.com</a><span class="dot">&middot;</span>
+    <a href="https://www.SellingWellen.com" target="_blank">SellingWellen.com</a>
+  </div>
+</header>
+
+<div class="progress-wrap" id="progressWrap">
+  <div class="progress-info"><span id="progressLabel">Question 1 of 13</span><span id="progressPct">0%</span></div>
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+</div>
+
+<main class="main">
+<div class="card" id="quizCard">
+
+<div class="step active" id="step-1">
+  <div class="step-num">1</div>
+  <div class="question-text">What is your primary reason for moving to Wellen Park?</div>
+  <div class="question-hint">This helps us understand your overall lifestyle goals.</div>
+  <div class="options">
+    <button class="opt" data-q="1" data-val="retirement"><div class="opt-radio"></div><div><div class="opt-label">Retirement / Active adult lifestyle</div><div class="opt-desc">Looking to relax, play, and enjoy Florida living</div></div></button>
+    <button class="opt" data-q="1" data-val="allages"><div class="opt-radio"></div><div><div class="opt-label">All-ages household - active and community-oriented</div><div class="opt-desc">Playgrounds, schools, walkable campuses, social amenities</div></div></button>
+    <button class="opt" data-q="1" data-val="seasonal"><div class="opt-radio"></div><div><div class="opt-label">Seasonal / Winter escape (snowbird)</div><div class="opt-desc">Part-time resident looking for a warm getaway</div></div></button>
+    <button class="opt" data-q="1" data-val="investment"><div class="opt-radio"></div><div><div class="opt-label">Investment / Relocation for work</div><div class="opt-desc">Building equity and settling into a new community</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-next" id="next-1" disabled onclick="nextStep(1)">Next</button></div>
+</div>
+
+<div class="step" id="step-2">
+  <div class="step-num">2</div>
+  <div class="question-text">Are you 55 or older?</div>
+  <div class="question-hint">One Wellen Park community is exclusively 55+.</div>
+  <div class="options">
+    <button class="opt" data-q="2" data-val="yes55"><div class="opt-radio"></div><div><div class="opt-label">Yes - and I would love a 55+ exclusive community</div><div class="opt-desc">Resort-style active adult neighborhood</div></div></button>
+    <button class="opt" data-q="2" data-val="yes_open"><div class="opt-radio"></div><div><div class="opt-label">Yes - but open to all-age communities too</div></div></button>
+    <button class="opt" data-q="2" data-val="no55"><div class="opt-radio"></div><div><div class="opt-label">No - I prefer an all-ages community</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(2)">Back</button><button class="btn btn-next" id="next-2" disabled onclick="nextStep(2)">Next</button></div>
+</div>
+
+<div class="step" id="step-3">
+  <div class="step-num">3</div>
+  <div class="question-text">What type of home are you looking for?</div>
+  <div class="options">
+    <button class="opt" data-q="3" data-val="villa"><div class="opt-radio"></div><div><div class="opt-label">Villa or paired villa (low maintenance)</div><div class="opt-desc">Right-sized, attached or paired, lock-and-leave</div></div></button>
+    <button class="opt" data-q="3" data-val="townhome"><div class="opt-radio"></div><div><div class="opt-label">Townhome or coach home / condo</div><div class="opt-desc">Multi-level, great value, minimal yard</div></div></button>
+    <button class="opt" data-q="3" data-val="sf_mid"><div class="opt-radio"></div><div><div class="opt-label">Single-family home (under 2,500 sq ft)</div><div class="opt-desc">Comfortable, manageable, classic neighborhood feel</div></div></button>
+    <button class="opt" data-q="3" data-val="sf_large"><div class="opt-radio"></div><div><div class="opt-label">Single-family home (2,500 to 4,000+ sq ft)</div><div class="opt-desc">Spacious, room to grow, large lot</div></div></button>
+    <button class="opt" data-q="3" data-val="luxury_estate"><div class="opt-radio"></div><div><div class="opt-label">Luxury / semi-custom estate home</div><div class="opt-desc">Custom finishes, premium lot, exclusive enclave</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(3)">Back</button><button class="btn btn-next" id="next-3" disabled onclick="nextStep(3)">Next</button></div>
+</div>
+
+<div class="step" id="step-4">
+  <div class="step-num">4</div>
+  <div class="question-text">What is your approximate budget range?</div>
+  <div class="question-hint">Wellen Park has options from the $290s to $3M+.</div>
+  <div class="options">
+    <button class="opt" data-q="4" data-val="budget1"><div class="opt-radio"></div><div><div class="opt-label">Under $400,000</div></div></button>
+    <button class="opt" data-q="4" data-val="budget2"><div class="opt-radio"></div><div><div class="opt-label">$400,000 to $600,000</div></div></button>
+    <button class="opt" data-q="4" data-val="budget3"><div class="opt-radio"></div><div><div class="opt-label">$600,000 to $900,000</div></div></button>
+    <button class="opt" data-q="4" data-val="budget4"><div class="opt-radio"></div><div><div class="opt-label">$900,000 to $1.5M</div></div></button>
+    <button class="opt" data-q="4" data-val="budget5"><div class="opt-radio"></div><div><div class="opt-label">$1.5M and above</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(4)">Back</button><button class="btn btn-next" id="next-4" disabled onclick="nextStep(4)">Next</button></div>
+</div>
+
+<div class="step" id="step-5">
+  <div class="step-num">5</div>
+  <div class="question-text">How important is golf to your lifestyle?</div>
+  <div class="question-hint">This is a key filter. We will only show you golf communities if you want one.</div>
+  <div class="options">
+    <button class="opt" data-q="5" data-val="golf_bundled"><div class="opt-radio"></div><div><div class="opt-label">Essential - I want bundled golf included</div><div class="opt-desc">Golf course access is part of my HOA fees</div></div></button>
+    <button class="opt" data-q="5" data-val="golf_optional"><div class="opt-radio"></div><div><div class="opt-label">Nice to have - I would like the option nearby</div><div class="opt-desc">Golf community preferred but not required</div></div></button>
+    <button class="opt" data-q="5" data-val="golf_no"><div class="opt-radio"></div><div><div class="opt-label">Not important - I do not golf</div><div class="opt-desc">I prefer lower fees without a course</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(5)">Back</button><button class="btn btn-next" id="next-5" disabled onclick="nextStep(5)">Next</button></div>
+</div>
+
+<div class="step" id="step-6">
+  <div class="step-num">6</div>
+  <div class="question-text">How do you feel about HOA fees and maintenance?</div>
+  <div class="question-hint">Communities vary widely in what is included.</div>
+  <div class="options">
+    <button class="opt" data-q="6" data-val="low_fee"><div class="opt-radio"></div><div><div class="opt-label">Keep it lean - lowest possible fees</div><div class="opt-desc">I will handle my own lawn and maintenance</div></div></button>
+    <button class="opt" data-q="6" data-val="mid_fee"><div class="opt-radio"></div><div><div class="opt-label">Moderate - happy to pay for a nice pool and amenities</div><div class="opt-desc">$300 to $600 per month feels reasonable</div></div></button>
+    <button class="opt" data-q="6" data-val="high_fee"><div class="opt-radio"></div><div><div class="opt-label">All-inclusive - I want full resort-style, fully maintained</div><div class="opt-desc">Premium fees for a truly hands-free lifestyle</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(6)">Back</button><button class="btn btn-next" id="next-6" disabled onclick="nextStep(6)">Next</button></div>
+</div>
+
+<div class="step" id="step-7">
+  <div class="step-num">7</div>
+  <div class="question-text">Which amenities are most important to you?</div>
+  <div class="question-hint">Choose the one that matters most.</div>
+  <div class="options">
+    <button class="opt" data-q="7" data-val="amen_pool"><div class="opt-radio"></div><div><div class="opt-label">Resort-style pool and spa</div><div class="opt-desc">Water slides, lap lanes, poolside lounging</div></div></button>
+    <button class="opt" data-q="7" data-val="amen_fitness"><div class="opt-radio"></div><div><div class="opt-label">State-of-the-art fitness center</div><div class="opt-desc">Classes, equipment, wellness programming</div></div></button>
+    <button class="opt" data-q="7" data-val="amen_pickleball"><div class="opt-radio"></div><div><div class="opt-label">Pickleball and Tennis courts</div><div class="opt-desc">Active social sports community</div></div></button>
+    <button class="opt" data-q="7" data-val="amen_nature"><div class="opt-radio"></div><div><div class="opt-label">Nature trails, preserves and waterfront views</div><div class="opt-desc">Peaceful, outdoorsy lifestyle</div></div></button>
+    <button class="opt" data-q="7" data-val="amen_dining"><div class="opt-radio"></div><div><div class="opt-label">On-site dining, clubhouse and social scene</div><div class="opt-desc">Full-service country club atmosphere</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(7)">Back</button><button class="btn btn-next" id="next-7" disabled onclick="nextStep(7)">Next</button></div>
+</div>
+
+<div class="step" id="step-8">
+  <div class="step-num">8</div>
+  <div class="question-text">How important is being gated or private to you?</div>
+  <div class="options">
+    <button class="opt" data-q="8" data-val="gated_yes"><div class="opt-radio"></div><div><div class="opt-label">Very important - I want a staffed or gated entrance</div></div></button>
+    <button class="opt" data-q="8" data-val="gated_nice"><div class="opt-radio"></div><div><div class="opt-label">Nice to have but not a dealbreaker</div></div></button>
+    <button class="opt" data-q="8" data-val="gated_no"><div class="opt-radio"></div><div><div class="opt-label">Not important - open community is fine</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(8)">Back</button><button class="btn btn-next" id="next-8" disabled onclick="nextStep(8)">Next</button></div>
+</div>
+
+<div class="step" id="step-9">
+  <div class="step-num">9</div>
+  <div class="question-text">What kind of neighborhood vibe appeals to you most?</div>
+  <div class="options">
+    <button class="opt" data-q="9" data-val="vibe_social"><div class="opt-radio"></div><div><div class="opt-label">High-energy and social - always something going on</div><div class="opt-desc">Clubs, events, neighbors you will know by name</div></div></button>
+    <button class="opt" data-q="9" data-val="vibe_quiet"><div class="opt-radio"></div><div><div class="opt-label">Quiet and serene - nature, peace, privacy</div><div class="opt-desc">Small enclave, few homes, low-traffic feel</div></div></button>
+    <button class="opt" data-q="9" data-val="vibe_allages"><div class="opt-radio"></div><div><div class="opt-label">All-ages and community-focused - diverse, active, welcoming</div><div class="opt-desc">Trails, recreation, walkable school campus nearby</div></div></button>
+    <button class="opt" data-q="9" data-val="vibe_luxury"><div class="opt-radio"></div><div><div class="opt-label">Upscale and exclusive - luxury builder, refined setting</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(9)">Back</button><button class="btn btn-next" id="next-9" disabled onclick="nextStep(9)">Next</button></div>
+</div>
+
+<div class="step" id="step-10">
+  <div class="step-num">10</div>
+  <div class="question-text">Are you open to new construction, resale, or both?</div>
+  <div class="question-hint">Some communities are new-only, some resale-only, some both.</div>
+  <div class="options">
+    <button class="opt" data-q="10" data-val="new_only"><div class="opt-radio"></div><div><div class="opt-label">New construction only</div><div class="opt-desc">Pick my lot, colors, finishes - I want it new</div></div></button>
+    <button class="opt" data-q="10" data-val="resale_only"><div class="opt-radio"></div><div><div class="opt-label">Resale / existing homes only</div><div class="opt-desc">Established neighborhood, move-in ready</div></div></button>
+    <button class="opt" data-q="10" data-val="both_ok"><div class="opt-radio"></div><div><div class="opt-label">Open to either - show me the best fit</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(10)">Back</button><button class="btn btn-next" id="next-10" disabled onclick="nextStep(10)">Next</button></div>
+</div>
+
+<div class="step" id="step-11">
+  <div class="step-num">11</div>
+  <div class="question-text">How close do you want to be to Downtown Wellen?</div>
+  <div class="question-hint">Downtown Wellen has dining, shops, and entertainment on an 80-acre lake.</div>
+  <div class="options">
+    <button class="opt" data-q="11" data-val="loc_walk"><div class="opt-radio"></div><div><div class="opt-label">Walking or golf cart distance - I want to be right there</div></div></button>
+    <button class="opt" data-q="11" data-val="loc_close"><div class="opt-radio"></div><div><div class="opt-label">Short drive is fine - within 5 to 10 minutes</div></div></button>
+    <button class="opt" data-q="11" data-val="loc_anywhere"><div class="opt-radio"></div><div><div class="opt-label">Location within Wellen Park does not matter much</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(11)">Back</button><button class="btn btn-next" id="next-11" disabled onclick="nextStep(11)">Next</button></div>
+</div>
+
+<div class="step" id="step-12">
+  <div class="step-num">12</div>
+  <div class="question-text">Do you have pets you will be bringing to your new home?</div>
+  <div class="options">
+    <button class="opt" data-q="12" data-val="pets_yes"><div class="opt-radio"></div><div><div class="opt-label">Yes - dog parks and pet-friendly trails are a must</div></div></button>
+    <button class="opt" data-q="12" data-val="pets_maybe"><div class="opt-radio"></div><div><div class="opt-label">Possibly - I would like the option</div></div></button>
+    <button class="opt" data-q="12" data-val="pets_no"><div class="opt-radio"></div><div><div class="opt-label">No pets - not a factor for me</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(12)">Back</button><button class="btn btn-next" id="next-12" disabled onclick="nextStep(12)">Next</button></div>
+</div>
+
+<div class="step" id="step-13">
+  <div class="step-num">13</div>
+  <div class="question-text">When are you thinking about making your move?</div>
+  <div class="question-hint">This helps me give you the most relevant advice.</div>
+  <div class="options">
+    <button class="opt" data-q="13" data-val="time_asap"><div class="opt-radio"></div><div><div class="opt-label">ASAP - I am ready to buy now or very soon</div></div></button>
+    <button class="opt" data-q="13" data-val="time_6mo"><div class="opt-radio"></div><div><div class="opt-label">Within 6 months</div></div></button>
+    <button class="opt" data-q="13" data-val="time_year"><div class="opt-radio"></div><div><div class="opt-label">6 to 12 months from now</div></div></button>
+    <button class="opt" data-q="13" data-val="time_later"><div class="opt-radio"></div><div><div class="opt-label">Just exploring for now (12+ months out)</div></div></button>
+  </div>
+  <div class="nav-row"><button class="btn btn-back" onclick="prevStep(13)">Back</button><button class="btn btn-next" id="next-13" disabled onclick="nextStep(13)">Next</button></div>
+</div>
+
+<div class="step" id="step-contact">
+  <div class="step-num" style="background:var(--blue)">@</div>
+  <div class="question-text">Almost there! Where should we send your results?</div>
+  <div class="question-hint">Your personalized neighborhood matches will be emailed to you instantly. I will also personally reach out to answer any questions!</div>
+  <div class="contact-form">
+    <label>First Name *</label><input type="text" id="fname" placeholder="Your first name"/>
+    <label>Last Name *</label><input type="text" id="lname" placeholder="Your last name"/>
+    <label>Email Address *</label><input type="email" id="email" placeholder="you@email.com"/>
+    <label>Phone Number (optional)</label><input type="tel" id="phone" placeholder="(941) 555-0000"/>
+    <div class="consent-row">
+      <input type="checkbox" id="consent"/>
+      <div class="consent-text"><strong>I agree to receive email communication</strong> from Julie Willett, NextHome Excellence, regarding my neighborhood fit results and Wellen Park real estate information. I understand I can unsubscribe at any time.</div>
+    </div>
+    <div class="disclaimer-box">
+      <strong>Fair Housing Notice:</strong> Julie Willett is committed to the principles of the Fair Housing Act. All neighborhood recommendations are based solely on your stated lifestyle preferences and are never based on race, color, national origin, religion, sex, familial status, disability, or any other protected characteristic.<br/><br/>
+      <strong>Not a Solicitation:</strong> If you are currently working with a licensed real estate professional, this quiz and its results are not intended as a solicitation of your business.
+    </div>
+    <div class="nav-row" style="margin-top:24px;">
+      <button class="btn btn-back" onclick="prevStep('contact')">Back</button>
+      <button class="btn btn-next" onclick="submitForm()">See My Results!</button>
+    </div>
+  </div>
+</div>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="spinner"></div>
+  <p>Calculating your neighborhood matches...</p>
+</div>
+
+</div>
+
+<div id="results">
+  <div class="card">
+    <div class="results-header">
+      <h2 id="resultsGreeting">Your Top Wellen Park Matches</h2>
+      <p id="resultsSubtitle">Based on your lifestyle preferences, here are your best-fit neighborhoods:</p>
+    </div>
+    <div id="neighborhoodResults"></div>
+    <div class="cta-box">
+      <h3>Ready to Take the Next Step?</h3>
+      <p>I would love to personally walk you through your top matches, answer questions, and set up tours. Reach out anytime - no pressure, just expertise!</p>
+      <div class="cta-links">
+        <a href="tel:9412237088" class="cta-btn cta-btn-orange">Call Julie: 941-223-7088</a>
+        <a href="mailto:nexthomejulie@gmail.com" class="cta-btn cta-btn-white">Email Julie</a>
+        <a href="https://www.SellingWellen.com" target="_blank" class="cta-btn cta-btn-white">SellingWellen.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <p><strong>Julie Willett, Realtor&reg;</strong> | NextHome Excellence | Venice, FL 34293</p>
+  <p><a href="tel:9412237088">941-223-7088</a> | <a href="mailto:nexthomejulie@gmail.com">nexthomejulie@gmail.com</a> | <a href="https://www.SellingWellen.com" target="_blank">SellingWellen.com</a></p>
+  <p style="margin-top:10px;">&copy; 2025 Julie Willett, NextHome Excellence. All rights reserved. Equal Housing Opportunity.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var TOTAL = 13;
+  var step = 1;
+  var ans = {};
+
+  var NB = [
+    {name:"IslandWalk",type:["resale"],golf:false,is55:false,allages:false,luxury:false,vibe:["social","quiet"],fee:"mid_fee",gated:true,budget:["budget2","budget3"],homes:["sf_mid","sf_large","villa"],amen:["amen_pool","amen_pickleball","amen_nature"],loc:"loc_close",desc:"One of Wellen Park's most beloved communities - nearly 2,000 homes built around a stunning freshwater canal system. Exceptional amenities, a vibrant social scene, and an established neighborhood feel make IslandWalk one of the most sought-after addresses in Venice."},
+    {name:"Gran Paradiso",type:["resale","new"],golf:false,is55:false,allages:false,luxury:false,vibe:["social","luxury"],fee:"mid_fee",gated:true,budget:["budget2","budget3"],homes:["sf_mid","sf_large","villa"],amen:["amen_pool","amen_pickleball","amen_fitness"],loc:"loc_close",desc:"A large, Tuscan-inspired community with beautiful architecture and a robust amenity package including a clubhouse, resort pool, tennis, pickleball, sauna, and yoga studio. Both new and resale homes available."},
+    {name:"Sarasota National",type:["resale"],golf:true,golfType:"bundled",is55:false,allages:false,luxury:true,vibe:["social","luxury"],fee:"high_fee",gated:true,budget:["budget3","budget4"],homes:["sf_mid","sf_large","villa","townhome"],amen:["amen_dining","amen_pool","amen_pickleball","amen_fitness"],loc:"loc_anywhere",desc:"The quintessential luxury country club lifestyle. Features an 18-hole championship golf course, full-service dining, pickleball, tennis, and spa services. Homes built 2007 to 2022. Note: course renovation planned for 2026."},
+    {name:"Wellen Park Golf and Country Club",type:["new"],golf:true,golfType:"bundled",is55:false,allages:false,luxury:true,vibe:["social","luxury"],fee:"high_fee",gated:true,budget:["budget2","budget3","budget4"],homes:["sf_mid","sf_large","villa","townhome"],amen:["amen_dining","amen_pool","amen_pickleball","amen_fitness"],loc:"loc_close",desc:"Wellen Park's newest golf community - over 1,300 homes built around a stunning new 18-hole course. Bundled golf, resort pool, tennis, pickleball, fitness center, and full clubhouse. The fastest-growing golf destination in the area."},
+    {name:"Boca Royale",type:["resale","new"],golf:true,golfType:"optional",is55:false,allages:false,luxury:true,vibe:["social","luxury"],fee:"high_fee",gated:true,budget:["budget3","budget4","budget5"],homes:["sf_mid","sf_large"],amen:["amen_pool","amen_pickleball","amen_dining"],loc:"loc_anywhere",desc:"A gated 1,000-acre community featuring an 18-hole golf course with separate golf, tennis, and social memberships. Two clubhouses, resort pool, and pickleball courts. Closest Wellen Park neighborhood to Manasota Key Beach."},
+    {name:"Brightmore",type:["new"],golf:false,is55:true,allages:false,luxury:false,vibe:["social"],fee:"mid_fee",gated:true,budget:["budget2","budget3"],homes:["sf_mid","villa"],amen:["amen_pool","amen_pickleball","amen_fitness"],loc:"loc_walk",desc:"Wellen Park's only dedicated 55+ lifestyle community by Mattamy Homes. Located adjacent to Downtown Wellen with resort-style amenities, extensive pickleball, pool, fitness center, and a full calendar of social activities for active adults."},
+    {name:"Grand Palm",type:["resale"],golf:false,is55:false,allages:true,luxury:false,vibe:["all-ages","social"],fee:"mid_fee",gated:true,budget:["budget2","budget3"],homes:["sf_mid","sf_large","villa"],amen:["amen_pool","amen_nature","amen_fitness"],loc:"loc_close",desc:"A nature-focused, active community with resort-style amenities including a pool with water slides, state-of-the-art fitness, and miles of nature trails. Perfect for those who love the outdoors and an active, connected neighborhood welcoming residents at every stage of life."},
+    {name:"Renaissance",type:["resale"],golf:false,is55:false,allages:true,luxury:false,vibe:["all-ages","social"],fee:"mid_fee",gated:true,budget:["budget1","budget2"],homes:["sf_mid","villa"],amen:["amen_pool","amen_pickleball","amen_fitness"],loc:"loc_close",desc:"A Mattamy Homes community with an excellent amenity package: clubhouse, fitness center, pool, tennis, pickleball, dog park, fire pit, and playground. Great value for active residents of all ages seeking a well-rounded, welcoming community."},
+    {name:"The Preserve",type:["resale"],golf:false,is55:false,allages:false,luxury:false,vibe:["quiet"],fee:"low_fee",gated:false,budget:["budget1","budget2"],homes:["sf_mid"],amen:["amen_nature","amen_pool"],loc:"loc_anywhere",desc:"A secluded, nature-lover's retreat with scenic preserve and lake views. Light amenities including pickleball, bocce ball, resort pool, and cabana. Lower fees make this a wonderful choice for those seeking tranquility without the country club price tag."},
+    {name:"Oasis",type:["resale"],golf:false,is55:false,allages:false,luxury:true,vibe:["quiet","luxury"],fee:"mid_fee",gated:true,budget:["budget3","budget4"],homes:["sf_mid","sf_large"],amen:["amen_nature","amen_pool","amen_pickleball"],loc:"loc_anywhere",desc:"A gated M/I Homes community with a beautiful pool and clubhouse, pickleball court, and winding nature trails with stunning preserve and lake views. Appeals to buyers who want quality construction and a quieter lifestyle."},
+    {name:"Tortuga",type:["resale"],golf:false,is55:false,allages:false,luxury:false,vibe:["quiet"],fee:"low_fee",gated:false,budget:["budget1","budget2"],homes:["sf_mid"],amen:["amen_nature"],loc:"loc_anywhere",desc:"A small, established Lennar community of 111 homes ranging from 1,600 to 3,200 sq ft. Known for privacy, proximity to nature trails and shopping, and a low-key neighborhood feel. Perfect for buyers who want Wellen Park's location without heavy HOA fees."},
+    {name:"Antigua",type:["resale"],golf:false,is55:false,allages:false,luxury:false,vibe:["quiet"],fee:"low_fee",gated:false,budget:["budget1","budget2"],homes:["sf_mid"],amen:["amen_nature"],loc:"loc_walk",desc:"A newer Lennar community of approximately 175 homes just one mile from Downtown Wellen. Low-maintenance living with a quiet vibe and prime central location. Minimal amenities keep fees down - ideal for those who want to enjoy Wellen Park without a club membership."},
+    {name:"Everly",type:["new"],golf:false,is55:false,allages:true,luxury:true,vibe:["luxury","all-ages","social"],fee:"high_fee",gated:true,budget:["budget4","budget5"],homes:["sf_large","luxury_estate"],amen:["amen_pool","amen_pickleball","amen_nature"],loc:"loc_anywhere",desc:"Luxury custom and semi-custom estate homes by some of Florida's finest builders. Larger lots, resort pool, clubhouse, pickleball, and a setting near nature trails. Perfect for discerning buyers who want space, prestige, and a stunning home in a vibrant all-ages community."},
+    {name:"Palmera",type:["new"],golf:false,is55:false,allages:true,luxury:true,vibe:["social","luxury","all-ages"],fee:"high_fee",gated:true,budget:["budget3","budget4"],homes:["sf_large","luxury_estate","townhome"],amen:["amen_dining","amen_pool","amen_fitness","amen_pickleball"],loc:"loc_close",desc:"One of Wellen Park's newest and most upscale communities with six award-winning builders offering homes from 2,291 to 5,000+ sq ft. Coastal-inspired clubhouse with on-site dining, fitness center, golf simulator, pool, splash pad, and pickleball. Welcoming residents at every stage of life."},
+    {name:"Sunstone",type:["new"],golf:false,is55:false,allages:true,luxury:false,vibe:["all-ages","social"],fee:"mid_fee",gated:true,budget:["budget2","budget3"],homes:["sf_mid","sf_large"],amen:["amen_pool","amen_pickleball","amen_nature"],loc:"loc_anywhere",desc:"A vibrant, active community in the Playmore district at the heart of Wellen Park. Great amenities, outdoor recreation, and a future walkable school campus make this one of the most dynamic communities for residents at all stages of life."},
+    {name:"Gran Place",type:["new"],golf:false,is55:false,allages:false,luxury:true,vibe:["quiet","luxury"],fee:"low_fee",gated:true,budget:["budget4","budget5"],homes:["luxury_estate"],amen:["amen_nature"],loc:"loc_anywhere",desc:"An exclusive enclave of just 42 luxury semi-custom homes surrounded by nature preserves and wildlife habitats. Pure exclusivity, natural beauty, and luxurious homes in an extremely rare opportunity."},
+    {name:"Oakbend",type:["new"],golf:false,is55:false,allages:false,luxury:true,vibe:["luxury","quiet"],fee:"mid_fee",gated:true,budget:["budget3","budget4"],homes:["sf_large","luxury_estate"],amen:["amen_nature","amen_pool"],loc:"loc_close",desc:"An exclusive gated community offering spacious one- and two-story homes with luxurious personalization options. Premium homesites with preserve or water views in a refined setting."},
+    {name:"Ashcombe",type:["new"],golf:false,is55:false,allages:true,luxury:false,vibe:["social","all-ages"],fee:"low_fee",gated:false,budget:["budget1","budget2"],homes:["townhome"],amen:["amen_pool"],loc:"loc_walk",desc:"A fresh take on modern townhome living right in the heart of Wellen Park. An accessible and welcoming entry point into this thriving community for residents of all backgrounds looking for low-maintenance, centrally located living."},
+    {name:"Lakespur",type:["new"],golf:false,is55:false,allages:true,luxury:false,vibe:["all-ages","social"],fee:"mid_fee",gated:false,budget:["budget2","budget3"],homes:["sf_mid","sf_large"],amen:["amen_pool","amen_pickleball","amen_nature"],loc:"loc_anywhere",desc:"An active, community-oriented neighborhood with great outdoor recreation and a future walkable school campus opening in 2026. An excellent choice for residents wanting to put down long-term roots in a thriving, all-ages environment."}
+  ];
+
+  function updateProgress() {
+    var pct = Math.round((step-1)/TOTAL*100);
+    document.getElementById('progressFill').style.width = pct+'%';
+    document.getElementById('progressLabel').textContent = step<=TOTAL ? 'Question '+step+' of '+TOTAL : 'Almost done!';
+    document.getElementById('progressPct').textContent = pct+'%';
+  }
+
+  document.querySelectorAll('.opt').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var q = this.getAttribute('data-q');
+      var v = this.getAttribute('data-val');
+      document.querySelectorAll('.opt[data-q="'+q+'"]').forEach(function(b){ b.classList.remove('selected'); });
+      this.classList.add('selected');
+      ans[q] = v;
+      var nb = document.getElementById('next-'+q);
+      if(nb) nb.removeAttribute('disabled');
+    });
+  });
+
+  window.nextStep = function(from){
+    if(from===TOTAL){ showStep('contact'); }
+    else { step++; showStep(step); }
+    updateProgress();
+  };
+
+  window.prevStep = function(cur){
+    if(cur==='contact'){ step=TOTAL; showStep(TOTAL); }
+    else { step--; showStep(step); }
+    updateProgress();
+  };
+
+  function showStep(id){
+    document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
+    var t = id==='contact' ? document.getElementById('step-contact') : document.getElementById('step-'+id);
+    if(t) t.classList.add('active');
+    if(id==='contact'){
+      document.getElementById('progressLabel').textContent='Last step - get your results!';
+      document.getElementById('progressFill').style.width='95%';
+      document.getElementById('progressPct').textContent='95%';
+    }
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function score(){
+    var noGolf = ans['5']==='golf_no';
+    var wants55 = ans['2']==='yes55';
+    var open55 = ans['2']==='yes_open';
+    var vibeMap = {vibe_social:'social',vibe_quiet:'quiet',vibe_allages:'all-ages',vibe_luxury:'luxury'};
+    return NB.map(function(n){
+      if(noGolf && n.golf) return null;
+      if(wants55 && !n.is55) return null;
+      var s=0;
+      if(ans['5']==='golf_bundled' && n.golf && n.golfType==='bundled') s+=25;
+      if(ans['5']==='golf_optional' && n.golf) s+=15;
+      if(ans['5']==='golf_no' && !n.golf) s+=10;
+      if(wants55 && n.is55) s+=20;
+      if(open55 && n.is55) s+=8;
+      if(!wants55 && !open55 && !n.is55) s+=5;
+      if(n.homes.indexOf(ans['3'])>-1) s+=18;
+      if(n.budget.indexOf(ans['4'])>-1) s+=20;
+      if(n.fee===ans['6']) s+=18; else if(ans['6']==='mid_fee') s+=6;
+      if(n.amen.indexOf(ans['7'])>-1) s+=12;
+      if(ans['8']==='gated_yes' && n.gated) s+=10;
+      if(ans['8']==='gated_no' && !n.gated) s+=5;
+      if(ans['8']==='gated_nice') s+=3;
+      if(n.vibe.indexOf(vibeMap[ans['9']])>-1) s+=15;
+      if(ans['10']==='new_only' && n.type.indexOf('new')>-1) s+=15;
+      if(ans['10']==='resale_only' && n.type.indexOf('resale')>-1) s+=15;
+      if(ans['10']==='both_ok') s+=8;
+      if(n.loc===ans['11']) s+=10;
+      if(ans['11']==='loc_anywhere') s+=5;
+      if(ans['1']==='allages' && n.allages) s+=12;
+      if(ans['1']==='retirement' && n.is55) s+=8;
+      if(ans['1']==='retirement' && n.vibe.indexOf('social')>-1) s+=5;
+      if(ans['1']==='seasonal' && n.fee==='low_fee') s+=5;
+      if(ans['12']==='pets_yes') s+=5;
+      return Object.assign({},n,{score:s});
+    }).filter(Boolean);
+  }
+
+  window.submitForm = function(){
+    var fn=document.getElementById('fname').value.trim();
+    var ln=document.getElementById('lname').value.trim();
+    var em=document.getElementById('email').value.trim();
+    var ph=document.getElementById('phone').value.trim();
+    var ck=document.getElementById('consent').checked;
+    if(!fn||!ln||!em){showToast('Please fill in your name and email.');return;}
+    if(!em.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){showToast('Please enter a valid email address.');return;}
+    if(!ck){showToast('Please check the consent box to continue.');return;}
+
+    document.querySelectorAll('.step').forEach(function(s){s.classList.remove('active');});
+    document.getElementById('loadingScreen').style.display='block';
+    document.getElementById('progressFill').style.width='100%';
+    document.getElementById('progressPct').textContent='100%';
+
+    var scored=score();
+    var seen={};
+    scored.forEach(function(n){if(!seen[n.name]||seen[n.name]<n.score)seen[n.name]=n.score;});
+    var deduped=[];
+    scored.forEach(function(n){if(seen[n.name]===n.score&&!deduped.find(function(d){return d.name===n.name;}))deduped.push(n);});
+    var top=deduped.sort(function(a,b){return b.score-a.score;}).slice(0,5);
+
+    var bm={budget1:'Under $400K',budget2:'$400K-$600K',budget3:'$600K-$900K',budget4:'$900K-$1.5M',budget5:'$1.5M+'};
+    var gm={golf_bundled:'Bundled golf essential',golf_optional:'Golf optional',golf_no:'No golf'};
+    var tm={time_asap:'ASAP',time_6mo:'Within 6 months',time_year:'6-12 months',time_later:'Just exploring'};
+    var summary=top.map(function(n,i){return '#'+(i+1)+': '+n.name+' | '+(n.golf?'Golf':'No Golf')+' | '+n.type.join('/');}).join('\n');
+
+    fetch('https://formspree.io/f/xwvwdypn',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:fn+' '+ln,email:em,phone:ph||'Not provided',budget:bm[ans['4']]||'',golf:gm[ans['5']]||'',timeline:tm[ans['13']]||'',top_matches:summary,_subject:'New Wellen Park Quiz Lead: '+fn+' '+ln,_replyto:em})
+    }).catch(function(e){console.warn(e);});
+
+    setTimeout(function(){
+      document.getElementById('loadingScreen').style.display='none';
+      document.getElementById('quizCard').style.display='none';
+      document.getElementById('progressWrap').style.display='none';
+      showResults(fn,top);
+    },1800);
+  };
+
+  function showResults(fn,matches){
+    document.getElementById('resultsGreeting').textContent=fn+"'s Top Wellen Park Matches";
+    document.getElementById('resultsSubtitle').textContent='Based on your lifestyle preferences, here are your '+matches.length+' best-fit neighborhoods, ranked just for you.';
+    var c=document.getElementById('neighborhoodResults');
+    var mx=matches[0]?matches[0].score:1;
+    matches.forEach(function(n,i){
+      var pct=Math.round((n.score/mx)*100);
+      var isTop=i===0;
+      var tags='';
+      if(n.golf) tags+='<span class="tag tag-golf">Golf Community</span>';
+      if(n.is55) tags+='<span class="tag tag-55">55+ Community</span>';
+      if(n.allages) tags+='<span class="tag tag-allages">All-Ages Community</span>';
+      if(n.luxury) tags+='<span class="tag tag-luxury">Luxury</span>';
+      if(n.type.indexOf('new')>-1&&n.type.indexOf('resale')>-1) tags+='<span class="tag tag-both">New and Resale</span>';
+      else if(n.type.indexOf('new')>-1) tags+='<span class="tag tag-new">New Construction</span>';
+      else tags+='<span class="tag tag-resale">Resale</span>';
+      if(n.fee==='low_fee') tags+='<span class="tag tag-lowfee">Lower Fees</span>';
+      if(n.fee==='high_fee') tags+='<span class="tag tag-highfee">Premium Amenities</span>';
+      if(n.gated) tags+='<span class="tag tag-gated">Gated</span>';
+      var d=document.createElement('div');
+      d.className='neighborhood-card';
+      d.innerHTML='<div class="nc-rank'+(isTop?' top':'')+'>'+(isTop?'BEST MATCH':'#'+(i+1)+' Match')+'</div>'+
+        '<div class="nc-name">'+n.name+'</div>'+
+        '<div class="nc-tags">'+tags+'</div>'+
+        '<div class="nc-desc">'+n.desc+'</div>'+
+        '<div class="score-bar-wrap"><div class="score-label">Lifestyle Fit: '+pct+'%</div>'+
+        '<div class="score-bar-bg"><div class="score-bar-fill" style="width:'+pct+'%"></div></div></div>';
+      c.appendChild(d);
+    });
+    document.getElementById('results').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function showToast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show');},3200);
+  }
+
+  updateProgress();
+});
+</script>
+</body>
+</html>
